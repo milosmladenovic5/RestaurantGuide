@@ -3,6 +3,7 @@ platforms/android/assets/www
 platforms/android/bin/
 platforms/android/gen/
 platforms/android/res/xml/config.xml
+platforms/android/browser
 
 # iOS
 platforms/ios/build/
@@ -13,3 +14,4 @@ platforms/ios/.staging
 
 # Emulator logs
 platforms/ios/cordova/console.log
+platforms/browser/browser.json
