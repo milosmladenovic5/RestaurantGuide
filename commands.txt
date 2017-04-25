@@ -1,3 +1,4 @@
 1. npm install -g cordova ionic
 2. ionic start imeprojekta
 3. ionic serve (i 4 unesi za localhost)
+input type range da se koristi za biranje distance
