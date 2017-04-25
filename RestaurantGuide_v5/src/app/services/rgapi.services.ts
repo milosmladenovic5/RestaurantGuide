@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http, Headers} from '@angular/http';
 import 'rxjs/Rx';
 
 @Injectable()
@@ -8,12 +8,17 @@ export class RGapiServices{
     baseUrl : String;
 
     constructor(http:Http){
-        this.http  = http;
-        this.baseUrl = "http://192.168.0.27:8000/api/";
+        this.http = http;
+        this.baseUrl = "http://192.168.56.1:8000/api/";
     }
 
-    getNearbyRestaurants(distance){
-        return this.http.post()
+    getCityByName(name){
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        let body = {cityName:'Nis'}; //name
+
+        return this.http.post(this.baseUrl+'getCityByName', JSON.stringify(body), {headers:headers}).map(res => res.json());
     }
 
 
