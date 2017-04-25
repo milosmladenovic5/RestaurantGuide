@@ -7,7 +7,12 @@
 </ion-header>
 
 <ion-content padding>
-  <div *ngIf="distance">
-    benis
-  </div>
+ 
+    <ion-card *ngIf="distance;else other_content"> <!-- bilo koji element -->
+        odabir distance
+    </ion-card>
+
+    <ng-template #other_content>                   <!-- else grana -->
+        <ion-card>odabir ostalih kriterijuma</ion-card>
+    </ng-template>
 </ion-content>
