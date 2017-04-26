@@ -8,7 +8,7 @@
 
 <ion-content padding>
  
-    <ion-list *ngIf="distance;else other_content"> <!-- bilo koji element -->
+    <ion-list *ngIf="distance;else other_content"> <!-- then grana -->
       
         <ion-item>
             <ion-label range-left>Maximum distance:</ion-label>
@@ -16,10 +16,18 @@
         </ion-item>
 
         <ion-item>
-        <ion-range min="0" max="150" step="1" [(ngModel)]="maxDistance">
+        <ion-range min="0" max="150" step="1" [(ngModel)]="maxDistance" name="maxDistance">
         <ion-icon small range-left name="walk"></ion-icon>
         <ion-icon range-right name="car"></ion-icon>
         </ion-range>
+        </ion-item>
+
+        
+
+        <ion-item>
+            <button ion-button block icon-only (click) ="getPlacesByDistance()">
+                <ion-icon name="search"></ion-icon>
+            </button>
         </ion-item>
 
     </ion-list>
