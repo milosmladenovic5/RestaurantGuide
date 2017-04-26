@@ -24315,11 +24315,11 @@ ion-navbar.toolbar {
 
 #logo {
   max-width: 90%;
-  max-height: 95%;
+  max-height: 100%;
 }
 
 #imgContainer {
-  max-height: 50%;
+  max-height: 70%;
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
@@ -24327,4 +24327,8 @@ ion-navbar.toolbar {
   -ms-flex-line-pack: center;
   align-content: center;
   text-align: center;
+}
+
+ion-navbar, ion-header {
+  background-color: lightblue;
 }

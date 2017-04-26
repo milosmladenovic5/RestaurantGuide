@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { PlacesListPage } from '../placesList/placesList';
 import { RGapiServices } from '../../app/services/rgapi.services';
 import { SearchCriteriasPage } from '../searchCriterias/searchCriterias';
+import { Platform } from 'ionic-angular'
 
 @Component({
   selector: 'page-home',
@@ -10,9 +11,10 @@ import { SearchCriteriasPage } from '../searchCriterias/searchCriterias';
 
 })
 export class HomePage {
+  platform: any;
 
-  constructor(public navCtrl: NavController, private rgService: RGapiServices) {
-
+  constructor(public navCtrl: NavController, private rgService: RGapiServices, platform: Platform) {
+    this.platform = platform;
   } 
   
   getNearbyPlaces()
@@ -24,6 +26,10 @@ export class HomePage {
   showSearchCriteriasPage(distance)
   {
     this.navCtrl.push(SearchCriteriasPage, {distance:distance});
+  }
+
+  exitApp(){
+    this.platform.exitApp();
   }
 
 
