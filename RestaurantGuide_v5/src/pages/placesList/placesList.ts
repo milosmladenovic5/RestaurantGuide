@@ -6,9 +6,9 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'placesList.html'
 })
 export class PlacesListPage {
-  item:any;
+  restaurants:any;
   constructor(public navCtrl: NavController, public params:NavParams) {
-    this.item = params.get('item');
+    this.restaurants = params.get('restaurants');
   }
 
 }
