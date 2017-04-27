@@ -12,6 +12,7 @@ import { HttpModule } from '@angular/http';
 import { SearchCriteriasPage } from '../pages/searchCriterias/searchCriterias';
 
 
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 

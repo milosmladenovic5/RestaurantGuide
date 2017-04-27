@@ -4,10 +4,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RGapiServices } from './services/rgapi.services'
 import { TabsPage } from '../pages/tabs/tabs';
+import { Geolocation } from '@ionic-native/geolocation'
 
 @Component({
   templateUrl: 'app.html',
-  providers: [RGapiServices]
+  providers: [RGapiServices, Geolocation]
 })
 export class MyApp {
   rootPage:any = TabsPage;
