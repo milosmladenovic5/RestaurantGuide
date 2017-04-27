@@ -5,6 +5,7 @@ import { RGapiServices } from '../../app/services/rgapi.services';
 import { SearchCriteriasPage } from '../searchCriterias/searchCriterias';
 import { Platform } from 'ionic-angular'
 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -31,6 +32,8 @@ export class HomePage {
   exitApp(){
     this.platform.exitApp();
   }
+
+
 
 
 }

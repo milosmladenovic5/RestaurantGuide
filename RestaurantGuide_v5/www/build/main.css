@@ -24329,6 +24329,15 @@ ion-navbar.toolbar {
   text-align: center;
 }
 
+.ios home-page .scroll, .md home-page .scroll {
+  height: 100%;
+}
+
+.ios home-page #map, .md home-page #map {
+  width: 100%;
+  height: 100%;
+}
+
 ion-navbar, ion-header {
   background-color: lightblue;
 }

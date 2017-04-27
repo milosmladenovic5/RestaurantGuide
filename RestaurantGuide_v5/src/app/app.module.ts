@@ -11,6 +11,7 @@ import { PlacesListPage } from '../pages/placesList/placesList';
 import { HttpModule } from '@angular/http';
 import { SearchCriteriasPage } from '../pages/searchCriterias/searchCriterias';
 import { MapPage } from '../pages/map/map';
+import { PlaceInfoPage } from '../pages/placeInfo/placeInfo';
 
 
 
@@ -26,7 +27,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     PlacesListPage,
     SearchCriteriasPage,
-    MapPage
+    MapPage,
+    PlaceInfoPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     PlacesListPage,
     SearchCriteriasPage,
-    MapPage
+    MapPage,
+    PlaceInfoPage
   ],
   providers: [
     StatusBar,
