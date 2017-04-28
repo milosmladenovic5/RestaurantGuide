@@ -40,4 +40,8 @@ export class RGapiServices{
       
         return this.http.post(this.baseUrl+'getPlacesByCriterias', JSON.stringify(body), {headers:headers}).map(res => res.json());
     }
+
+    
+
+
 }

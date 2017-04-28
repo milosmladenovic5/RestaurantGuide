@@ -24329,12 +24329,11 @@ ion-navbar.toolbar {
   text-align: center;
 }
 
-.ios home-page .scroll, .md home-page .scroll {
-  height: 100%;
+ion-app._gmaps_cdv_ .nav-decor {
+  background-color: transparent !important;
 }
 
-.ios home-page #map, .md home-page #map {
-  width: 100%;
+home-page #map {
   height: 100%;
 }
 

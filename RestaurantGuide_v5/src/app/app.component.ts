@@ -6,6 +6,7 @@ import { RGapiServices } from './services/rgapi.services'
 import { TabsPage } from '../pages/tabs/tabs';
 import { Geolocation } from '@ionic-native/geolocation';
 import { SQLite } from '@ionic-native/sqlite';
+import { GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, CameraPosition, MarkerOptions, Marker } from '@ionic-native/google-maps';
 
 @Component({
   templateUrl: 'app.html',
