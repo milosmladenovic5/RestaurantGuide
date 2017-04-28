@@ -33,7 +33,38 @@
     </ion-list>
 
     <ng-template #other_content>                   <!-- else grana -->
-        <ion-card>odabir ostalih kriterijuma</ion-card>
+       
+         <ion-item>
+            <ion-label>LiveMusic</ion-label>
+            <ion-select [(ngModel)]="liveMusic" name="liveMusic">
+            <ion-option value="Yes">Yes</ion-option>
+            <ion-option value="No">No</ion-option>
+            </ion-select>
+        </ion-item>
+
+         <ion-item>
+            <ion-label>Coucine</ion-label>
+            <ion-select [(ngModel)]="coucine" name="coucine">
+            <ion-option value="Balkanska">Balkanska</ion-option>
+            <ion-option value="Međunarodna">Međunarodna</ion-option>
+            <ion-option value="Italijanska">Italijanska</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Place type</ion-label>
+            <ion-select [(ngModel)]="type" name="type">
+            <ion-option value="Restoran">Restoran</ion-option>
+            <ion-option value="Kafana">Kafana</ion-option>
+            <ion-option value="Pivnica">Pivnica</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <button ion-button block icon-only (click) ="getPlacesByCriterias()">
+                <ion-icon name="search"></ion-icon>
+            </button>
+        </ion-item>
         
     </ng-template>
 </ion-content>

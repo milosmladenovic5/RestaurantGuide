@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { MapPage } from '../map/map';
+import { PlaceInfoPage } from '../placeInfo/placeInfo';
 
 @Component({
   selector: 'placesList',
@@ -13,11 +14,11 @@ export class PlacesListPage {
   }
 
   showPlaceDetails(place){
-
+    this.navCtrl.push(PlaceInfoPage, {place:place});
   }
 
   showMapWithPlaces(){
-        this.navCtrl.push(MapPage, {places:this.places});
+    this.navCtrl.push(MapPage, {places:this.places});
   }
 
 }

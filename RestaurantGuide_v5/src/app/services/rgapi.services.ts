@@ -9,7 +9,7 @@ export class RGapiServices{
 
     constructor(http:Http){
         this.http = http;
-        this.baseUrl = "http://192.168.1.102:8000/api/";
+        this.baseUrl = "http://192.168.56.1:8000/api/";
     }
 
     getCityByName(name){
@@ -29,5 +29,15 @@ export class RGapiServices{
         //lokacija neka ostane fiksna(u uapiju za sada)
 
         return this.http.post(this.baseUrl+'getNearbyPlaces', JSON.stringify(body), {headers:headers}).map(res => res.json());
+    }
+
+    getPlacesByCriterias(liveMusic, coucine, type)
+    {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        let body = {coucine:coucine, liveMusic:liveMusic, type:type};
+      
+        return this.http.post(this.baseUrl+'getPlacesByCriterias', JSON.stringify(body), {headers:headers}).map(res => res.json());
     }
 }

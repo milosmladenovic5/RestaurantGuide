@@ -16,15 +16,19 @@
 //ovaj gore kod ce da nam sluzi za kreiranje baze ili otvaranje postojece u slucaju da je kreirana
 
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import { MapPage } from '../map/map';
 
 @Component({
   templateUrl: 'placeInfo.html'
 })
 export class PlaceInfoPage {
 
-  constructor(public navCtrl: NavController) {
-
+   place:any;
+   constructor(public navCtrl: NavController, public params:NavParams) {
+    this.place = params.get('place');
   }
 
 }
+
+
