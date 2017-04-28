@@ -12,9 +12,9 @@ import { HttpModule } from '@angular/http';
 import { SearchCriteriasPage } from '../pages/searchCriterias/searchCriterias';
 import { MapPage } from '../pages/map/map';
 import { PlaceInfoPage } from '../pages/placeInfo/placeInfo';
-
-
-
+ import { GoogleMap, LatLng, GoogleMapsEvent , GoogleMaps} from "@ionic-native/google-maps"
+ import { Connectivity } from '../providers/connectivity';
+import { Locations } from '../providers/locations';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -50,6 +50,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

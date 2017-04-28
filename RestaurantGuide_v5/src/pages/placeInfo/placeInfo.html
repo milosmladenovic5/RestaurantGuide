@@ -6,8 +6,13 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding id="bodyContent">
-  <ion-list>
-  {{place.Name}}
-  </ion-list>
+<ion-content  id="bodyContent">
+  <ion-content>
+    <div id="map"></div>
+     <ion-list>
+      {{place.Name}}
+    </ion-list>
+    <button range-right block ion-button  color="dark"outline id="nearRest" > <ion-icon name="star"></ion-icon> </button>
+  </ion-content>
+ 
 </ion-content>

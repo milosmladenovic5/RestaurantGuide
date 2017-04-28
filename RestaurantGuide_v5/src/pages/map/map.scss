@@ -1,11 +1,7 @@
-ion-app._gmaps_cdv_ .nav-decor{
-  background-color: transparent !important;
+ion-app._gmaps_cdv_ .nav-decor {
+  background-color: rgba(0, 0, 0, 0) !important;
 }
- 
-home-page {
- 
-    #map {
-        height: 100%;
-    }
- 
+
+#map {
+  height: 100%;
 }

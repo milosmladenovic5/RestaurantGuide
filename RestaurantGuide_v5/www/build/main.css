@@ -24333,8 +24333,20 @@ ion-app._gmaps_cdv_ .nav-decor {
   background-color: transparent !important;
 }
 
-home-page #map {
+#map {
   height: 100%;
+}
+
+ion-app._gmaps_cdv_ .nav-decor {
+  background-color: transparent !important;
+}
+
+#map {
+  height: 30%;
+}
+
+#bodyContent {
+  padding: 2px;
 }
 
 ion-navbar, ion-header {

@@ -69,7 +69,7 @@
                     ],
                     "/manifest/application": [
                         {
-                            "xml": "<meta-data android:name=\"com.google.android.geo.API_KEY\" android:value=\"AIzaSyASp0QIbwG1xPi1zC0teLk51-ZywBmerE4\" />",
+                            "xml": "<meta-data android:name=\"com.google.android.geo.API_KEY\" android:value=\"AIzaSyA4oUARg7pp7bCrZ0AzcfT6g-YjQQL8MT4\" />",
                             "count": 1
                         },
                         {
@@ -144,7 +144,7 @@
             "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
         },
         "cordova-plugin-googlemaps": {
-            "API_KEY_FOR_ANDROID": "AIzaSyASp0QIbwG1xPi1zC0teLk51-ZywBmerE4",
+            "API_KEY_FOR_ANDROID": "AIzaSyA4oUARg7pp7bCrZ0AzcfT6g-YjQQL8MT4",
             "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
         }
     },
