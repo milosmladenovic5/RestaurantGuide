@@ -14,7 +14,7 @@ export class MapPage {
   places:any;
   location:any;
   @ViewChild('map') mapElement:ElementRef;
-  map:GoogleMap;
+  map:any;
 
   constructor(public navCtrl: NavController, public params:NavParams, platform:Platform,public geolocation:Geolocation)
   {      
