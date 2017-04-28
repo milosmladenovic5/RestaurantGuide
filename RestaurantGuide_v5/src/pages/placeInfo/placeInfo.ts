@@ -28,23 +28,24 @@ import { Geolocation } from '@ionic-native/geolocation';
 })
 export class PlaceInfoPage {
   places:any;
-  location:any;
+  //location:any;
 
   map:GoogleMap;
      
    place:any;
    constructor(public navCtrl: NavController, private platform:Platform, public params:NavParams, public geolocation:Geolocation, private googleMaps:GoogleMaps) {
     this.place = params.get('place');
-
+  
      platform.ready().then(() => { 
-        this.loadMap();
+        let location = new LatLng(this.place.Latitude, this.place.Longitude);
+        this.loadMap(location);
         });
   }
 
-  loadMap(){ 
-        let location = new LatLng(-34.9290,138.6010);
+  loadMap(location){ 
+        //let location = new LatLng(-34.9290,138.6010);
  
-        this.map = new GoogleMap('map', {
+        this.map = new GoogleMap('placeMap', {
           'backgroundColor': 'white',
           'controls': {
             'compass': true,
@@ -66,7 +67,7 @@ export class PlaceInfoPage {
           }
         });
 
-        this.map.setCenter(this.location);
+        this.map.setCenter(location);
  
         this.map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {
             console.log('Map is ready!');
