@@ -39,6 +39,9 @@ export class SearchCriteriasPage {
 
  getPlacesByDistance()
  {
+    //let loc = new LatLng(43.3180417,21.8960932);
+    this.location = { longitude:21.8960922,latitude:43.3180417 }; // fiksno - genymotion location ne radi~
+
     this.rgService.getPlacesByDistance(this.maxDistance, this.location).subscribe(response => {
         console.log(response); // ovde pristupiti plaginu za lokaciju
         this.navCtrl.push(PlacesListPage, {places:response});   // i preusmeriti na listu

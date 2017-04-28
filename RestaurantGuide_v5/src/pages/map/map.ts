@@ -18,16 +18,15 @@ export class MapPage {
 
   constructor(public navCtrl: NavController, public params:NavParams, platform:Platform,public geolocation:Geolocation, private googleMaps:GoogleMaps)
   {      
-     //this.location = { longitude:0.0 , latitude:0.0 };
-
      platform.ready().then(() => {         
-        geolocation.getCurrentPosition().then((resp) => {
+        //geolocation.getCurrentPosition().then((resp) => {
             // this.location.latitude= resp.coords.latitude;
             // this.location.longitude= resp.coords.longitude;
-            let location = new LatLng(resp.coords.latitude,resp.coords.longitude );
+            //let location = new LatLng(resp.coords.latitude,resp.coords.longitude );
+            let location = new LatLng(43.3180417,21.8960932);
             this.loadMap(location);
 
-          });
+          //});
         });
 
       this.places = params.get('places');
@@ -40,7 +39,8 @@ export class MapPage {
           
 
    loadMap(location){ 
-       // let location = new LatLng(-34.9290,138.6010);
+      
+        console.log("Platforma je spremna, ulazim u smrdljivu funkciju!")
  
         this.map = new GoogleMap('map', {
           'backgroundColor': 'white',
