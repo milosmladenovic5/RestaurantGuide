@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Search for restaurants
+      Pretraži restorane
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -11,7 +11,7 @@
     <ion-list *ngIf="distance;else other_content"> <!-- then grana -->
       
         <ion-item>
-            <ion-label range-left>Maximum distance:</ion-label>
+            <ion-label range-left>Maksimalna udaljenost:</ion-label>
             <ion-label range-right>{{maxDistance}} km</ion-label>
         </ion-item>
 
@@ -35,15 +35,15 @@
     <ng-template #other_content>                   <!-- else grana -->
        
          <ion-item>
-            <ion-label>LiveMusic</ion-label>
+            <ion-label>Uživo muzika?</ion-label>
             <ion-select [(ngModel)]="liveMusic" name="liveMusic">
-            <ion-option value="Yes">Yes</ion-option>
-            <ion-option value="No">No</ion-option>
+            <ion-option value="Yes">Da</ion-option>
+            <ion-option value="No">Ne</ion-option>
             </ion-select>
         </ion-item>
 
          <ion-item>
-            <ion-label>Coucine</ion-label>
+            <ion-label>Kuhinja</ion-label>
             <ion-select [(ngModel)]="coucine" name="coucine">
             <ion-option value="Balkanska">Balkanska</ion-option>
             <ion-option value="Međunarodna">Međunarodna</ion-option>
@@ -52,7 +52,7 @@
         </ion-item>
 
         <ion-item>
-            <ion-label>Place type</ion-label>
+            <ion-label>Tip mesta</ion-label>
             <ion-select [(ngModel)]="type" name="type">
             <ion-option value="Restoran">Restoran</ion-option>
             <ion-option value="Kafana">Kafana</ion-option>
