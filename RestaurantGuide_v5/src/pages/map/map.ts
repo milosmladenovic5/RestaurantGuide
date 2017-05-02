@@ -6,6 +6,12 @@ import { RGapiServices } from '../../app/services/rgapi.services';
 import {GoogleMaps, GoogleMap, LatLng, GoogleMapsEvent, MarkerOptions, Marker} from "@ionic-native/google-maps";
 import { PlaceInfoPage } from '../placeInfo/placeInfo';
 
+
+
+interface IDictionary {
+     [index: string]: string;
+  };   
+
 @Component({
   selector: 'map-page',
   templateUrl: 'map.html'
@@ -16,10 +22,12 @@ export class MapPage {
   //location:any;
 
   map:GoogleMap;
-     
+  markerTitle:{};
+  
 
   constructor(public navCtrl: NavController, private rgService: RGapiServices, public params:NavParams, platform:Platform,public geolocation:Geolocation, private googleMaps:GoogleMaps)
   {      
+      
      platform.ready().then(() => {         
         //geolocation.getCurrentPosition().then((resp) => {
             // this.location.latitude= resp.coords.latitude;
@@ -32,6 +40,7 @@ export class MapPage {
         });
 
       this.places = params.get('places');
+      this.markerTitle = {} as IDictionary;
   }
 
 
@@ -41,9 +50,7 @@ export class MapPage {
           
 
    loadMap(location){ 
-      
-        console.log("Platforma je spremna, ulazim u smrdljivu funkciju!")
- 
+     
         this.map = new GoogleMap('map', {
           'backgroundColor': 'white',
           'controls': {
@@ -79,10 +86,11 @@ export class MapPage {
 
                 this.map.addMarker(markerOptions)
                       .then((marker: Marker) => {
-                          marker.showInfoWindow();
+                         // marker.showInfoWindow();
+                         this.markerTitle[marker.getTitle()] = 'NO';  
                           marker.addEventListener(GoogleMapsEvent.MARKER_CLICK).subscribe(() => 
-                          {
-                             this.markerClick(marker.getTitle());
+                          {                                                        
+                             this.markerClick(marker.getTitle(), marker);
                           });
                 });
             }
@@ -92,14 +100,23 @@ export class MapPage {
  
     }
 
-    markerClick(placeName)
+    markerClick(placeName, marker)
     {
+      console.log(this.markerTitle[placeName]);
+      if (this.markerTitle[placeName] == 'YES'){
        console.log('Marker clicked...' + placeName);
              
         this.rgService.getPlaceByName(placeName).subscribe(response => {
               console.log(response); 
               this.navCtrl.push(PlaceInfoPage, {place:response});   // i preusmeriti na na samo mesto
         })                    
+      }
+      else {
+         marker.showInfoWindow();
+         this.markerTitle[placeName] = 'YES';
+         console.log('Upisano je YES' + this.markerTitle[placeName]);
+      }
+
     }
 
   
