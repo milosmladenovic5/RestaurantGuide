@@ -58,17 +58,27 @@ export class RGapiServices{
 
         let body = {placeId:placeId};
 
-        return this.http.post(this.baseUrl+'getPlaceByName', JSON.stringify(body), {headers:headers}).map(res => res.json());
+        return this.http.post(this.baseUrl+'getPlaceMenu', JSON.stringify(body), {headers:headers}).map(res => res.json());
     }
 
-      getPlaceReviews(placeId)
+    getPlaceReviews(placeId)
     {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
         let body = {placeId:placeId};
 
-        return this.http.post(this.baseUrl+'getPlaceByName', JSON.stringify(body), {headers:headers}).map(res => res.json());
+        return this.http.post(this.baseUrl+'getPlaceReviews', JSON.stringify(body), {headers:headers}).map(res => res.json());
+    }
+
+     submitReview(review)
+    {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        let body = {review:review};
+
+        return this.http.post(this.baseUrl+'createComment', JSON.stringify(body), {headers:headers}).map(res => res.json());
     }
 
 

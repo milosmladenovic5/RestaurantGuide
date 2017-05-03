@@ -19,7 +19,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuPage } from '../pages/menu/menu';
 import { InputReviewPage } from '../pages/inputReview/inputReview';
-import { ReviewListPage } from '../pages/ReviewList/ReviewList';
+import { ReviewListPage } from '../pages/reviewList/reviewList';
+import { Ionic2RatingModule } from 'ionic2-rating';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ReviewListPage } from '../pages/ReviewList/ReviewList';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    Ionic2RatingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

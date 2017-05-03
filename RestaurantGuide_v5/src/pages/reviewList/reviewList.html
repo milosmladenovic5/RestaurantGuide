@@ -1,11 +1,19 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Lista preporuka
+      Lista preporuka za {{place.PlaceName}}
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+    <button range-right block ion-button  color="secondary" (click)="createNew()" >Dodaj novu preporuku</button> 
+     <ion-list>
+        <ion-item *ngFor = "let review of reviews" id = "reviews">
+            {{review.Nickname}} <br/>
+            {{review.Text}} <br/>
+            {{review.Timestamp}} <br/>
+            {{review.Rating}} <br/>
+        </ion-item>
+    </ion-list>
 </ion-content>

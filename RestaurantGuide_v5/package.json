@@ -29,6 +29,7 @@
     "@types/google-maps": "^3.2.0",
     "ionic-angular": "3.0.1",
     "ionic-native": "^3.5.0",
+    "ionic2-rating": "^1.2.2",
     "ionicons": "3.0.0",
     "rxjs": "5.1.1",
     "sw-toolbox": "3.4.0",

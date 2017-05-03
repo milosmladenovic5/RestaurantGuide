@@ -24329,6 +24329,20 @@ ion-navbar.toolbar {
   text-align: center;
 }
 
+ul {
+  padding: 0px;
+}
+
+ul.rating li {
+  padding: 5px 10px !important;
+  background: none;
+  color: #ffb400;
+}
+
+ul.rating li ion-icon {
+  font-size: 30px;
+}
+
 ion-app._gmaps_cdv_ .nav-decor {
   background-color: transparent !important;
 }

@@ -1,11 +1,32 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      O autorima
+      Nova preporuka
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+      <ion-item>
+        <ion-label>Ime</ion-label>
+        <ion-input type="text" [(ngModel)]="review.nickname" name="nickname" maxlength="45"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Komentar</ion-label>
+        <ion-textarea [(ngModel)]="review.comment" name="comment" maxlength="350"></ion-textarea> <!-- stipso jedna stavio si maks 45 karaktera za kolonu, modifikuj tabelu samo! -->
+      </ion-item>
+      <ion-item>
+        <!--<ion-label>Rejting</ion-label>-->
+         <rating [(ngModel)]="review.rating" 
+            readOnly="false" 
+            max="5"
+            emptyStarIconName="star-outline" 
+            halfStarIconName="star-half" 
+            starIconName="star" 
+            nullable="false"> 
+        </rating>
+      </ion-item>
+      <ion-item>
+        <button ion-button type="submit" (click)="submitReview()" block>Objavi</button>
+      </ion-item>
 </ion-content>

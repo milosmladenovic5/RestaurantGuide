@@ -30,8 +30,7 @@ import { ReviewListPage } from '../reviewList/reviewList';
   templateUrl: 'placeInfo.html'
 })
 export class PlaceInfoPage {
-  places:any;
-  //location:any;
+
 
   map:GoogleMap;
      
@@ -86,7 +85,7 @@ export class PlaceInfoPage {
 
     viewReviews() {
         this.rgService.getPlaceReviews(this.place.PlaceId).subscribe(response => {
-              this.navCtrl.push(ReviewListPage, {reviews:response});   
+              this.navCtrl.push(ReviewListPage, {reviews:response, place:this.place});   
         })
     }
 
