@@ -82,7 +82,10 @@ export class PlaceInfoPage {
     }
 
     viewGallery(){
-      this.navCtrl.push(PhotoGalleryPage,{placeName:this.place.Name});
+       this.rgService.getPlaceMenu(this.place.PlaceId).subscribe(response => {
+            this.navCtrl.push(PhotoGalleryPage,{place:this.place, photosInformations:response});
+        }) 
+      
     }
 
     viewReviews() {

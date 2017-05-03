@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
+
 import 'rxjs/Rx';
 
 @Injectable()
@@ -9,7 +10,7 @@ export class RGapiServices{
 
     constructor(http:Http){
         this.http = http;
-        this.baseUrl = "http://192.168.1.106:8000/api/";
+        this.baseUrl = "http://192.168.0.10:8000/api/";
     }
 
     getCityByName(name){
@@ -26,7 +27,7 @@ export class RGapiServices{
         headers.append('Content-Type', 'application/json');
 
         let body = {distance:distance, location:location};
-        //lokacija neka ostane fiksna(u uapiju za sada)
+   
 
         return this.http.post(this.baseUrl+'getNearbyPlaces', JSON.stringify(body), {headers:headers}).map(res => res.json());
     }
@@ -80,6 +81,21 @@ export class RGapiServices{
 
         return this.http.post(this.baseUrl+'createComment', JSON.stringify(body), {headers:headers}).map(res => res.json());
     }
+
+    getPhotosInformations(placeId)
+    {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        let body = {placeId:placeId};
+
+        return this.http.post(this.baseUrl+'getPhotosInformations', JSON.stringify(body), {headers:headers}).map(res => res.json());
+    }
+
+    uploadImage() {
+  
+
+}
 
 
 }
