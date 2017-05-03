@@ -12,11 +12,14 @@ import { HttpModule } from '@angular/http';
 import { SearchCriteriasPage } from '../pages/searchCriterias/searchCriterias';
 import { MapPage } from '../pages/map/map';
 import { PlaceInfoPage } from '../pages/placeInfo/placeInfo';
- import { GoogleMap, LatLng, GoogleMapsEvent , GoogleMaps} from "@ionic-native/google-maps"
- import { Connectivity } from '../providers/connectivity';
+import { GoogleMap, LatLng, GoogleMapsEvent , GoogleMaps} from "@ionic-native/google-maps";
+import { Connectivity } from '../providers/connectivity';
 import { Locations } from '../providers/locations';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { MenuPage } from '../pages/menu/menu';
+import { InputReviewPage } from '../pages/inputReview/inputReview';
+import { ReviewListPage } from '../pages/ReviewList/ReviewList';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     PlacesListPage,
     SearchCriteriasPage,
     MapPage,
-    PlaceInfoPage
+    PlaceInfoPage,
+    MenuPage,
+    InputReviewPage,
+    ReviewListPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +51,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     PlacesListPage,
     SearchCriteriasPage,
     MapPage,
-    PlaceInfoPage
+    PlaceInfoPage,
+    MenuPage,
+    InputReviewPage,
+    ReviewListPage
   ],
   providers: [
     StatusBar,

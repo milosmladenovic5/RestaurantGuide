@@ -21,6 +21,9 @@ import { MapPage } from '../map/map';
 import {GoogleMaps, GoogleMap, LatLng, GoogleMapsEvent} from "@ionic-native/google-maps";
 import { Platform } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { RGapiServices } from '../../app/services/rgapi.services';
+import { MenuPage } from '../menu/menu';
+import { ReviewListPage } from '../reviewList/reviewList';
 
 
 @Component({
@@ -33,7 +36,7 @@ export class PlaceInfoPage {
   map:GoogleMap;
      
    place:any;
-   constructor(public navCtrl: NavController, private platform:Platform, public params:NavParams, public geolocation:Geolocation, private googleMaps:GoogleMaps) {
+   constructor(public navCtrl: NavController, private platform:Platform, public params:NavParams, public geolocation:Geolocation, private googleMaps:GoogleMaps, private rgService: RGapiServices) {
     this.place = params.get('place');
   
      platform.ready().then(() => { 
@@ -75,6 +78,21 @@ export class PlaceInfoPage {
  
     }
 
+    viewMenu() {
+        this.rgService.getPlaceMenu(this.place.PlaceId).subscribe(response => {
+              this.navCtrl.push(MenuPage, {menuItems:response});   
+        }) 
+    }
+
+    viewReviews() {
+        this.rgService.getPlaceReviews(this.place.PlaceId).subscribe(response => {
+              this.navCtrl.push(ReviewListPage, {reviews:response});   
+        })
+    }
+
+
+
 }
+
 
 

@@ -10,9 +10,26 @@
   <ion-content>
     <div id="placeMap"></div>
      <ion-list>
-      {{place.Name}}
+       <ion-item>
+          {{place.Name}}
+       </ion-item>
+          <ion-item>
+          <button ion-button color="dark"  item-right class="leftSideButtons"  (click) ="viewMenu()">
+              Pogledaj meni
+          </button>
+           <button ion-button color="dark" item-right class="rightSideButtons" (click) ="viewReviews()">
+              Pogledaj preporuke
+          </button>
+          </ion-item>
+          <ion-item>
+          <button ion-button block color="dark" item-right icon-left   (click) ="addToFavorites()">
+              <ion-icon name="heart"></ion-icon>
+              Dodaj u omiljene
+          </button>
+       </ion-item>
+        
     </ion-list>
-    <button clears ion-button  color="dark"outline id="nearRest" > <ion-icon name="star"></ion-icon> </button>
+    
   </ion-content>
  
 </ion-content>
