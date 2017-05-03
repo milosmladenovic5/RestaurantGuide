@@ -9,10 +9,11 @@ import { SQLite } from '@ionic-native/sqlite';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, CameraPosition, MarkerOptions, Marker } from '@ionic-native/google-maps';
 import { SqlStorage } from '../providers/sql-storage';
 import { CallNumber } from '@ionic-native/call-number';
+import { Dialogs } from '@ionic-native/dialogs';
 
 @Component({
   templateUrl: 'app.html',
-  providers: [RGapiServices, Geolocation, SQLite, SqlStorage, CallNumber]
+  providers: [RGapiServices, Geolocation, SQLite, SqlStorage, CallNumber, Dialogs]
 })
 export class MyApp {
   rootPage:any = TabsPage;

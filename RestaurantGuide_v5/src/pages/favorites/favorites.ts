@@ -3,8 +3,7 @@ import { NavController,  NavParams  } from 'ionic-angular';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite'
 import { Platform } from 'ionic-angular';
 import { SqlStorage } from '../../providers/sql-storage';
-
-
+import { FavoritePlaceInfoPage } from '../favoritePlaceInfo/favoritePlaceInfo';
 
 @Component({
   selector: 'page-favorites',
@@ -28,6 +27,7 @@ sqlDatabase:SQLite;
   placeDetails(place)
   {
     console.log("Place details click.");
+    this.navCtrl.push(FavoritePlaceInfoPage, {place:place});
   }
 
 

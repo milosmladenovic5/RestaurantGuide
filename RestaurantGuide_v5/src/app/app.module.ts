@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { PhotoGalleryPage } from '../pages/photoGallery/photoGallery';
 import { PlacesListPage } from '../pages/placesList/placesList';
 import { HttpModule } from '@angular/http';
+import { FavoritePlaceInfoPage } from '../pages/favoritePlaceInfo/favoritePlaceInfo'
 import { SearchCriteriasPage } from '../pages/searchCriterias/searchCriterias';
 import { MapPage } from '../pages/map/map';
 import { PlaceInfoPage } from '../pages/placeInfo/placeInfo';
@@ -25,7 +26,6 @@ import { Ionic2RatingModule } from 'ionic2-rating';
 import { SQLite } from '@ionic-native/sqlite';
 import { SqlStorage } from '../providers/sql-storage';
 
-
 @NgModule({
   declarations: [
     MyApp,
@@ -40,7 +40,8 @@ import { SqlStorage } from '../providers/sql-storage';
     MenuPage,
     InputReviewPage,
     ReviewListPage,
-    PhotoGalleryPage
+    PhotoGalleryPage,
+    FavoritePlaceInfoPage
   ],
   imports: [
     BrowserModule,
@@ -62,7 +63,8 @@ import { SqlStorage } from '../providers/sql-storage';
     MenuPage,
     InputReviewPage,
     ReviewListPage,
-    PhotoGalleryPage
+    PhotoGalleryPage,
+    FavoritePlaceInfoPage
   ],
   providers: [
     StatusBar,

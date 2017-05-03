@@ -70,6 +70,22 @@ module.exports = [
         "clobbers": [
             "call"
         ]
+    },
+    {
+        "id": "cordova-plugin-dialogs.notification",
+        "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+        "pluginId": "cordova-plugin-dialogs",
+        "merges": [
+            "navigator.notification"
+        ]
+    },
+    {
+        "id": "cordova-plugin-dialogs.notification_android",
+        "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
+        "pluginId": "cordova-plugin-dialogs",
+        "merges": [
+            "navigator.notification"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -85,7 +101,8 @@ module.exports.metadata =
     "cordova-plugin-geolocation": "2.4.2",
     "cordova-sqlite-storage": "2.0.3",
     "cordova-plugin-googlemaps": "1.4.0",
-    "mx.ferreyra.callnumber": "0.0.2"
+    "mx.ferreyra.callnumber": "0.0.2",
+    "cordova-plugin-dialogs": "1.3.3"
 };
 // BOTTOM OF METADATA
 });

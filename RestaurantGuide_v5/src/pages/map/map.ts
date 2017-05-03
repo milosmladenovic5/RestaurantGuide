@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Platform } from 'ionic-angular';
 import { RGapiServices } from '../../app/services/rgapi.services';
-import {GoogleMaps, GoogleMap, LatLng, GoogleMapsEvent, MarkerOptions, Marker} from "@ionic-native/google-maps";
+import { GoogleMaps, GoogleMap, LatLng, GoogleMapsEvent, MarkerOptions, Marker} from "@ionic-native/google-maps";
 import { PlaceInfoPage } from '../placeInfo/placeInfo';
 
 

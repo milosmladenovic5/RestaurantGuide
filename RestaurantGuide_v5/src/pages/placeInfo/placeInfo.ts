@@ -10,7 +10,8 @@ import { ReviewListPage } from '../reviewList/reviewList';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { SqlStorage } from '../../providers/sql-storage';
 import { CallNumber } from '@ionic-native/call-number';
-
+import { PhotoGalleryPage } from '../photoGallery/photoGallery';
+import { Dialogs } from '@ionic-native/dialogs';
 
 @Component({
   templateUrl: 'placeInfo.html'
@@ -21,7 +22,7 @@ export class PlaceInfoPage {
   map:GoogleMap;
      
    place:any;
-   constructor(public navCtrl: NavController, private caller: CallNumber,  public sqlStorage:SqlStorage, private sqlite:SQLite, private platform:Platform, public params:NavParams, public geolocation:Geolocation, private googleMaps:GoogleMaps, private rgService: RGapiServices) {
+   constructor(public navCtrl: NavController, private dialogs:Dialogs, private caller: CallNumber,  public sqlStorage:SqlStorage, private sqlite:SQLite, private platform:Platform, public params:NavParams, public geolocation:Geolocation, private googleMaps:GoogleMaps, private rgService: RGapiServices) {
     this.place = params.get('place');
   
      platform.ready().then(() => { 
@@ -80,32 +81,27 @@ export class PlaceInfoPage {
         }) 
     }
 
+    viewGallery(){
+      this.navCtrl.push(PhotoGalleryPage,{placeName:this.place.Name});
+    }
+
     viewReviews() {
         this.rgService.getPlaceReviews(this.place.PlaceId).subscribe(response => {
               this.navCtrl.push(ReviewListPage, {reviews:response, place:this.place});   
         })
     }
 
-    createOrOpenDatabase()
-    {
-      this.sqlite.create({
-        name:'data.db',
-        location: 'default'
-      }).then((db:SQLiteObject) => 
-      {
-          db.executeSql('create table FavoritePlaces (name VARCHAR(32), latitude REAL(20), longitude REAL(20), score REAL(2), liveMusic VARCHAR(3), placeType VARCHAR(10), cuisine VARCHAR(15), phoneNumber VARCHAR(20), address VARCHAR (45))',{})
-          .then(() => {
-            console.log("Local database created.");
-          })
-          .catch( e => console.log(e));
-      });
-    }
-
+  
     addToFavorites(place)
     {
       this.sqlStorage.insertFavoritePlace(place)
-      .then(() =>
-        console.log("Successfull insertion."));
+      .then(() =>{
+        console.log("Successfull insertion.");
+         this.dialogs.alert('Dodato u omiljene.')
+          .then(() => console.log('Dialog dismissed'))
+          .catch(e => console.log('Error displaying dialog', e));
+    });
+       
     }
     
     callNumber(phoneNumber)

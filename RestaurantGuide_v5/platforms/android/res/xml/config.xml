@@ -39,6 +39,9 @@
     <feature name="CallNumber">
         <param name="android-package" value="mx.ferreyra.callnumber.CFCallNumber" />
     </feature>
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+    </feature>
     <name>RestaurantGuide_v5</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>

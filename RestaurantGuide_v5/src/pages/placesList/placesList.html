@@ -1,14 +1,14 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      List of places
+      Lista mesta
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding id="bodyContent">
   <ion-list>
-   <button range-right block ion-button  color="dark" (click)="showMapWithPlaces()" outline id="nearRest" >Show on map</button> 
+   <button range-right block ion-button  color="dark" (click)="showMapWithPlaces()" outline id="nearRest" >Prikaži na mapi</button> 
     <ion-item *ngFor = "let place of places" id = "restaurantDetails">
       <ion-card>
 

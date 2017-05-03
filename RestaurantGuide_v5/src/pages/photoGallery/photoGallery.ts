@@ -1,4 +1,4 @@
-import { NavController } from 'ionic-angular';
+import { NavController , NavParams } from 'ionic-angular';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,9 +6,11 @@ import { Component } from '@angular/core';
   templateUrl: 'photoGallery.html'
 })
 export class PhotoGalleryPage {
+  placeName:any;
+  place:any;
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(public navCtrl: NavController, public params:NavParams) {
+        this.placeName = params.get('placeName');
   }
 
 }
