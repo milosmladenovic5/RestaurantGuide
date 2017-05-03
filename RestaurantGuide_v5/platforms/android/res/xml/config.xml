@@ -36,6 +36,9 @@
     <feature name="Geocoder">
         <param name="android-package" value="plugin.google.maps.MyGeocoder" />
     </feature>
+    <feature name="CallNumber">
+        <param name="android-package" value="mx.ferreyra.callnumber.CFCallNumber" />
+    </feature>
     <name>RestaurantGuide_v5</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>

@@ -34,6 +34,9 @@
         "cordova-plugin-googlemaps": {
             "API_KEY_FOR_ANDROID": "AIzaSyA4oUARg7pp7bCrZ0AzcfT6g-YjQQL8MT4",
             "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
+        },
+        "mx.ferreyra.callnumber": {
+            "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
         }
     },
     "dependent_plugins": {

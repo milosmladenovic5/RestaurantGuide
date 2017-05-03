@@ -1,29 +1,15 @@
-//  let db = new SQLite();
-//       db.create({
-//         name: "data.db",
-//         location: "default"
-//       }).then(() => {
-//         db.executeSql("CREATE TABLE IF NOT EXISTS favoritePlaces (id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, LiveMusic TEXT, Latitude TEXT, Longitude TEXT, Latitude TEXT, Coucine TEXT, PlaceType TEXT, Address TEXT, PhoneNumber TEXT)",{}).then((data) => {
-//          console.log("TABLE CREATED: ", data);
-//         }, (error) => {
-//           console.log("Error", error);
-//         })
-//      }, (error) =>{
-//        console.log("Unable to open database.", error);
-//      });
-//     });
-
-//ovaj gore kod ce da nam sluzi za kreiranje baze ili otvaranje postojece u slucaju da je kreirana
-
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { MapPage } from '../map/map';
-import {GoogleMaps, GoogleMap, LatLng, GoogleMapsEvent} from "@ionic-native/google-maps";
+import {GoogleMaps, GoogleMap, LatLng, GoogleMapsEvent, MarkerOptions, Marker} from "@ionic-native/google-maps";
 import { Platform } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { RGapiServices } from '../../app/services/rgapi.services';
 import { MenuPage } from '../menu/menu';
 import { ReviewListPage } from '../reviewList/reviewList';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+import { SqlStorage } from '../../providers/sql-storage';
+import { CallNumber } from '@ionic-native/call-number';
 
 
 @Component({
@@ -35,12 +21,13 @@ export class PlaceInfoPage {
   map:GoogleMap;
      
    place:any;
-   constructor(public navCtrl: NavController, private platform:Platform, public params:NavParams, public geolocation:Geolocation, private googleMaps:GoogleMaps, private rgService: RGapiServices) {
+   constructor(public navCtrl: NavController, private caller: CallNumber,  public sqlStorage:SqlStorage, private sqlite:SQLite, private platform:Platform, public params:NavParams, public geolocation:Geolocation, private googleMaps:GoogleMaps, private rgService: RGapiServices) {
     this.place = params.get('place');
   
      platform.ready().then(() => { 
         let location = new LatLng(this.place.Latitude, this.place.Longitude);
         this.loadMap(location);
+        //this.createOrOpenDatabase();
         });
   }
 
@@ -73,6 +60,16 @@ export class PlaceInfoPage {
  
         this.map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {
             console.log('Map is ready!');
+            let markerOptions: MarkerOptions = {
+                    position: new LatLng(this.place.Latitude, this.place.Longitude),
+                    title: this.place.Name
+                };
+
+            this.map.addMarker(markerOptions)
+                .then((marker:Marker) => {
+                  console.log("Marker added.");
+                  marker.showInfoWindow();
+                });            
         });
  
     }
@@ -89,6 +86,34 @@ export class PlaceInfoPage {
         })
     }
 
+    createOrOpenDatabase()
+    {
+      this.sqlite.create({
+        name:'data.db',
+        location: 'default'
+      }).then((db:SQLiteObject) => 
+      {
+          db.executeSql('create table FavoritePlaces (name VARCHAR(32), latitude REAL(20), longitude REAL(20), score REAL(2), liveMusic VARCHAR(3), placeType VARCHAR(10), cuisine VARCHAR(15), phoneNumber VARCHAR(20), address VARCHAR (45))',{})
+          .then(() => {
+            console.log("Local database created.");
+          })
+          .catch( e => console.log(e));
+      });
+    }
+
+    addToFavorites(place)
+    {
+      this.sqlStorage.insertFavoritePlace(place)
+      .then(() =>
+        console.log("Successfull insertion."));
+    }
+    
+    callNumber(phoneNumber)
+    {
+        this.caller.callNumber(phoneNumber,true)
+        .then(() => console.log("Successfull call."))
+        .catch(() => console.log("Error launching dialer."));
+    }
 
 
 }

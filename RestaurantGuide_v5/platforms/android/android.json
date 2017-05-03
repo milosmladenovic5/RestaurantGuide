@@ -47,6 +47,10 @@
                         {
                             "xml": "<feature name=\"Geocoder\"><param name=\"android-package\" value=\"plugin.google.maps.MyGeocoder\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"CallNumber\"><param name=\"android-package\" value=\"mx.ferreyra.callnumber.CFCallNumber\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -64,6 +68,14 @@
                         },
                         {
                             "xml": "<uses-feature android:name=\"android.hardware.location.gps\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.CALL_PHONE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-feature android:name=\"android.hardware.telephony\" android:required=\"false\" />",
                             "count": 1
                         }
                     ],
@@ -146,6 +158,9 @@
         "cordova-plugin-googlemaps": {
             "API_KEY_FOR_ANDROID": "AIzaSyA4oUARg7pp7bCrZ0AzcfT6g-YjQQL8MT4",
             "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
+        },
+        "mx.ferreyra.callnumber": {
+            "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
         }
     },
     "dependent_plugins": {},
@@ -212,6 +227,14 @@
             "clobbers": [
                 "cordova-plugin-googlemaps"
             ]
+        },
+        {
+            "id": "mx.ferreyra.callnumber.CallNumber",
+            "file": "plugins/mx.ferreyra.callnumber/www/CallNumber.js",
+            "pluginId": "mx.ferreyra.callnumber",
+            "clobbers": [
+                "call"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -224,6 +247,7 @@
         "cordova-plugin-compat": "1.1.0",
         "cordova-plugin-geolocation": "2.4.2",
         "cordova-sqlite-storage": "2.0.3",
-        "cordova-plugin-googlemaps": "1.4.0"
+        "cordova-plugin-googlemaps": "1.4.0",
+        "mx.ferreyra.callnumber": "0.0.2"
     }
 }

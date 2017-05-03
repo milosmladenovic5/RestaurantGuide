@@ -9,7 +9,7 @@ export class RGapiServices{
 
     constructor(http:Http){
         this.http = http;
-        this.baseUrl = "http://192.168.0.10:8000/api/";
+        this.baseUrl = "http://192.168.1.106:8000/api/";
     }
 
     getCityByName(name){
@@ -71,7 +71,7 @@ export class RGapiServices{
         return this.http.post(this.baseUrl+'getPlaceReviews', JSON.stringify(body), {headers:headers}).map(res => res.json());
     }
 
-     submitReview(review)
+    submitReview(review)
     {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');

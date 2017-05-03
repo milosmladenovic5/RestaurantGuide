@@ -80,5 +80,13 @@
         "variables": {
             "API_KEY_FOR_ANDROID": "AIzaSyA4oUARg7pp7bCrZ0AzcfT6g-YjQQL8MT4"
         }
+    },
+    "mx.ferreyra.callnumber": {
+        "source": {
+            "type": "registry",
+            "id": "call-number"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

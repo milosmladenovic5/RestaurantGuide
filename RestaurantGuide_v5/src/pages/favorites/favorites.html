@@ -1,13 +1,16 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Omiljeni restorani
+      Omiljena mesta
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    
+    <ion-item *ngFor = "let place of favoritePlaces" id = "restaurantDetails">
+         {{place.name}} &nbsp; (<i>{{place.placeType}}</i>)
+         <button ion-button color="danger" clear id="moreDetails" (click) = "placeDetails(place)">Detalji</button>
+    </ion-item>
   </ion-list>
 </ion-content>

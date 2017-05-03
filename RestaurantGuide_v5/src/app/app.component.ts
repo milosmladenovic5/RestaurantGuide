@@ -7,10 +7,12 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { Geolocation } from '@ionic-native/geolocation';
 import { SQLite } from '@ionic-native/sqlite';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, CameraPosition, MarkerOptions, Marker } from '@ionic-native/google-maps';
+import { SqlStorage } from '../providers/sql-storage';
+import { CallNumber } from '@ionic-native/call-number';
 
 @Component({
   templateUrl: 'app.html',
-  providers: [RGapiServices, Geolocation]
+  providers: [RGapiServices, Geolocation, SQLite, SqlStorage, CallNumber]
 })
 export class MyApp {
   rootPage:any = TabsPage;

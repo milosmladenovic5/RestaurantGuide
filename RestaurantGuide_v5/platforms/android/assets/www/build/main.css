@@ -24313,6 +24313,10 @@ ion-navbar.toolbar {
   }
 }
 
+#moreDetails {
+  float: right;
+}
+
 #logo {
   max-width: 90%;
   max-height: 100%;
@@ -24329,6 +24333,20 @@ ion-navbar.toolbar {
   text-align: center;
 }
 
+ul {
+  padding: 0px;
+}
+
+ul.rating li {
+  padding: 5px 10px !important;
+  background: none;
+  color: #ffb400;
+}
+
+ul.rating li ion-icon {
+  font-size: 30px;
+}
+
 ion-app._gmaps_cdv_ .nav-decor {
   background-color: transparent !important;
 }
@@ -24337,16 +24355,47 @@ ion-app._gmaps_cdv_ .nav-decor {
   height: 100%;
 }
 
+#price {
+  float: right;
+}
+
+#itemName {
+  float: left;
+}
+
 ion-app._gmaps_cdv_ .nav-decor {
   background-color: transparent !important;
 }
 
 #placeMap {
-  height: 40%;
+  height: 45%;
 }
 
 #bodyContent {
   padding: 2px;
+}
+
+.leftSideButtons {
+  height: 30%;
+  width: 50%;
+  float: left;
+}
+
+.rightSideButtons {
+  height: 30%;
+  width: 50%;
+  float: right;
+}
+
+#placeName {
+  position: center;
+  text-align: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 27px;
+  box-shadow: 1px;
 }
 
 ion-navbar, ion-header {
@@ -24367,4 +24416,16 @@ h4, h3 {
 
 #km {
   float: right;
+}
+
+#reviewText {
+  border: 1px solid rgba(1, 1, 1, 0.1);
+  padding: 2px;
+  margin: 2px;
+  box-shadow: 1px 1px 1px #888888;
+}
+
+h3 {
+  margin: 2px;
+  padding: 1px;
 }

@@ -7,6 +7,7 @@ import { AboutPage } from '../pages/about/about';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { PhotoGalleryPage } from '../pages/photoGallery/photoGallery';
 import { PlacesListPage } from '../pages/placesList/placesList';
 import { HttpModule } from '@angular/http';
 import { SearchCriteriasPage } from '../pages/searchCriterias/searchCriterias';
@@ -21,6 +22,9 @@ import { MenuPage } from '../pages/menu/menu';
 import { InputReviewPage } from '../pages/inputReview/inputReview';
 import { ReviewListPage } from '../pages/reviewList/reviewList';
 import { Ionic2RatingModule } from 'ionic2-rating';
+import { SQLite } from '@ionic-native/sqlite';
+import { SqlStorage } from '../providers/sql-storage';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +39,8 @@ import { Ionic2RatingModule } from 'ionic2-rating';
     PlaceInfoPage,
     MenuPage,
     InputReviewPage,
-    ReviewListPage
+    ReviewListPage,
+    PhotoGalleryPage
   ],
   imports: [
     BrowserModule,
@@ -56,12 +61,15 @@ import { Ionic2RatingModule } from 'ionic2-rating';
     PlaceInfoPage,
     MenuPage,
     InputReviewPage,
-    ReviewListPage
+    ReviewListPage,
+    PhotoGalleryPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     GoogleMaps,
+    SQLite,
+    SqlStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

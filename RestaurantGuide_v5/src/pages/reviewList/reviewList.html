@@ -10,10 +10,13 @@
     <button range-right block ion-button  color="secondary" (click)="createNew()" >Dodaj novu preporuku</button> 
      <ion-list>
         <ion-item *ngFor = "let review of reviews" id = "reviews">
-            {{review.Nickname}} <br/>
-            {{review.Text}} <br/>
-            {{review.Timestamp}} <br/>
-            {{review.Rating}} <br/>
+            <ion-card>
+             <h3><i>Korisničko ime:</i></h3> {{review.Nickname}} <br/>
+             <h3><i>Tekst preporuke:</i></h3>
+             <p id="reviewText"> {{review.Text}} <br/> </p>
+             <h3><i>Vreme:</i></h3>  {{review.Timestamp}} <br/>
+             <h3><i>Ocena:</i></h3>  {{review.Rating}} od 5<br/>
+            </ion-card>
         </ion-item>
     </ion-list>
 </ion-content>
