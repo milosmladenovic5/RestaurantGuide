@@ -43,10 +43,16 @@
         },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
+        },
+        "cordova-plugin-file": {
             "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
         }
     }

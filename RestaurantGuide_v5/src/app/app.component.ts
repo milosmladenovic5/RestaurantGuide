@@ -10,10 +10,12 @@ import { GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, CameraPosition, MarkerO
 import { SqlStorage } from '../providers/sql-storage';
 import { CallNumber } from '@ionic-native/call-number';
 import { Dialogs } from '@ionic-native/dialogs';
+import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @Component({
   templateUrl: 'app.html',
-  providers: [RGapiServices, Geolocation, SQLite, SqlStorage, CallNumber, Dialogs]
+  providers: [RGapiServices, Geolocation, SQLite, SqlStorage, CallNumber, Dialogs, Transfer, Camera]
 })
 export class MyApp {
   rootPage:any = TabsPage;
