@@ -12,7 +12,7 @@ export class RGapiServices{
 
     constructor(http:Http, private transfer: Transfer){
         this.http = http;
-        this.baseUrl = "http://192.168.0.10:8000/api/";
+        this.baseUrl = "http://192.168.1.106:8000/api/";
     }
 
     getCityByName(name){
