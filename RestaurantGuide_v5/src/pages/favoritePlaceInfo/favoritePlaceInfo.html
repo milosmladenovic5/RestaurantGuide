@@ -7,6 +7,26 @@
 </ion-header>
 
 <ion-content padding>
-    
-
+    <ion-item>
+         <div id="nameCont">
+          <h1 id="placeName"> {{place.name}} </h1>
+         </div>
+         <button ion-button id="callNumbBtn" color="danger" clear (click) = "callNumber(place.phoneNumber)">
+           <ion-icon name="phone"></ion-icon>
+           {{place.phoneNumber}}</button>
+         <div class="placeIfno">
+           <ion-grid>
+              <ion-row>
+                <ion-col col-lg-4 col-md-6 col-sm-6>{{place.address}}</ion-col><ion-col col-lg-4 col-md-6 col-sm-6>{{place.placeType}}</ion-col>
+                <ion-col col-lg-4 col-md-6 col-sm-6>{{place.cuisine}} kuhinja</ion-col>
+                <ion-col col-lg-4 col-md-6 col-sm-6>Otvoreno: <i>{{place.workingHours}}</i></ion-col>      
+              </ion-row>
+           </ion-grid>
+         </div>
+       </ion-item>
+    <ion-item>
+      <button ion-button block color="danger" item-right icon-left class="btns"  (click) ="viewMenu(place.name)">
+        Pogledaj meni
+      </button>
+    </ion-item>
 </ion-content>

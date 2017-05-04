@@ -22,13 +22,12 @@ export class PlaceInfoPage {
   map:GoogleMap;
      
    place:any;
-   constructor(public navCtrl: NavController, private dialogs:Dialogs, private caller: CallNumber,  public sqlStorage:SqlStorage, private sqlite:SQLite, private platform:Platform, public params:NavParams, public geolocation:Geolocation, private googleMaps:GoogleMaps, private rgService: RGapiServices) {
+   constructor(public navCtrl: NavController, private dialogs:Dialogs, private caller: CallNumber,  public sqlStorage:SqlStorage,  private sqlite:SQLite, private platform:Platform, public params:NavParams, public geolocation:Geolocation, private googleMaps:GoogleMaps, private rgService: RGapiServices) {
     this.place = params.get('place');
   
      platform.ready().then(() => { 
         let location = new LatLng(this.place.Latitude, this.place.Longitude);
         this.loadMap(location);
-        //this.createOrOpenDatabase();
         });
   }
 
@@ -97,15 +96,30 @@ export class PlaceInfoPage {
   
     addToFavorites(place)
     {
-      this.sqlStorage.insertFavoritePlace(place)
-      .then(() =>{
-        console.log("Successfull insertion.");
-         this.dialogs.alert('Dodato u omiljene.')
-          .then(() => console.log('Dialog dismissed'))
-          .catch(e => console.log('Error displaying dialog', e));
-    });
+      this.rgService.getPlaceMenu(place.PlaceId).subscribe(response => {
+       this.sqlStorage.insertFavoritePlace(place)
+        .then(() =>{
+            this.addMenuToFavorites(response, this.place.Name);
+            this.dialogs.alert('Dodato u omiljene.','Obaveštenje','Izađi')
+            .then(() => console.log('Dialog dismissed'))
+            .catch(e => console.log('Error displaying dialog', e));
+        });
+      }) 
        
     }
+
+    addMenuToFavorites(menu, placeName)
+    {
+      for(var i=0; i<menu.length; i++)
+      {
+        menu[i].PlaceName = placeName;
+        this.sqlStorage.insertMenuItem(menu[i])
+          .then(() => {
+            console.log("Menu item added.");
+          });
+      }      
+    }
+
     
     callNumber(phoneNumber)
     {

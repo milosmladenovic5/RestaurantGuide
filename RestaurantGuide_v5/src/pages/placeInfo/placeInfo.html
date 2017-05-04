@@ -7,37 +7,42 @@
 </ion-header>
 
 <ion-content  id="bodyContent">
-  <ion-content>
     <div id="placeMap"></div>
      <ion-list>
        <ion-item>
+         <div id="nameCont">
           <h1 id="placeName"> {{place.Name}} </h1>
-         <button ion-button color="danger" clear (click) = "callNumber(place.PhoneNumber)">{{place.PhoneNumber}}</button>
+         </div>
+         <button ion-button id="callNumbBtn" color="danger" clear (click) = "callNumber(place.PhoneNumber)">{{place.PhoneNumber}}</button>
+         <div class="placeIfno">
+           <ion-grid>
+              <ion-row>
+                <ion-col col-lg-4 col-md-6 col-sm-6>{{place.Address}}</ion-col><ion-col col-lg-4 col-md-6 col-sm-6>{{place.PlaceType}}</ion-col>
+                <ion-col col-lg-4 col-md-6 col-sm-6>{{place.Coucine}} kuhinja</ion-col>
+                <ion-col col-lg-4 col-md-6 col-sm-6>Otvoreno: <i>{{place.WorkingHours}}</i></ion-col>      
+              </ion-row>
+           </ion-grid>
+         </div>
        </ion-item>
           <ion-item>
-          <button ion-button color="secondary"  item-right class="leftSideButtons"  (click) ="viewMenu()">
+          <button ion-button color="primary"  item-right class="leftSideButtons btns"  (click) ="viewMenu()">
               Meni
           </button>
-           <button ion-button color="secondary" item-right class="rightSideButtons" (click) ="viewReviews()">
+           <button ion-button color="primary" item-right class="rightSideButtons btns" (click) ="viewReviews()">
               Preporuke
           </button>
           </ion-item>
           <ion-item>
-            <button ion-button block color="primary" item-right icon-left (click) = "viewGallery()">
+            <button ion-button block class="btns" color="primary" item-right icon-left (click) = "viewGallery()">
               <ion-icon name="photos"></ion-icon>
               Galerija fotografija
           </button>
           </ion-item>
           <ion-item>
-          <button ion-button block color="danger" item-right icon-left   (click) ="addToFavorites(place)">
+          <button ion-button block color="danger" item-right icon-left class="btns"  (click) ="addToFavorites(place)">
               <ion-icon name="heart"></ion-icon>
               Dodaj u omiljene
           </button>
        </ion-item>
-
-        
     </ion-list>
-    
-  </ion-content>
- 
 </ion-content>

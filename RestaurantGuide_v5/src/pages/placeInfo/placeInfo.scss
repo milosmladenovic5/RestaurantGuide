@@ -3,7 +3,7 @@ ion-app._gmaps_cdv_ .nav-decor {
 }
 
 #placeMap {
-  height: 45%;
+  height: 40%;
 }
 
 #bodyContent
@@ -29,7 +29,34 @@ ion-app._gmaps_cdv_ .nav-decor {
   position:center;
   text-align: center;
   align-content: center;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size:27px;
-  box-shadow: 1px;
+  box-shadow: 2px;
+  margin-left:12px;
+}
+
+#nameCont{
+  float:left;
+  margin-right: 5px;
+  
+}
+
+#callNumbBtn{
+  padding-top:5px;
+  margin-top:6px;
+}
+
+.btns{
+  padding-top:7px;
+  min-height: 20px;
+}
+
+.button-inner{
+  padding-top:5px;
+  padding-bottom:5px;
+}
+
+ion-col{
+  text-align: center;
+  box-shadow: 1px 1px 1px rgb(128,128,128);
 }

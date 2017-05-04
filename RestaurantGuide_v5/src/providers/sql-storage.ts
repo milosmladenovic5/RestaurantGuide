@@ -6,7 +6,7 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 export class SqlStorage {
 
     storage: any;
-    DB_NAME: string = 'FavoritePlaces';
+    DB_NAME: string = 'favPlaces';
 
     constructor(public platform: Platform, public sqlite: SQLite) {
 
@@ -15,13 +15,23 @@ export class SqlStorage {
             this.sqlite.create({ name: this.DB_NAME, location: 'default' })
                 .then((db: SQLiteObject) => {
                     this.storage = db;
-                    this.tryInit();
+                    this.createPlacesTable();
+                    this.createMenuItemTable();
             });
         });
     }
 
-    tryInit() {
-        this.query('create table if not exists FavoritePlaces (name VARCHAR(32), latitude REAL(20), longitude REAL(20), score REAL(2), liveMusic VARCHAR(3), placeType VARCHAR(10), cuisine VARCHAR(15), phoneNumber VARCHAR(20), address VARCHAR (45))')
+    createMenuItemTable(){
+         this.query('create table if not exists MenuItem (EntryName VARCHAR(50), EntryDescription VARCHAR(500), EntryPrice VARCHAR(15), PlaceName VARCHAR(50))')
+            .then(() => console.log("Successfully created menu table"))
+            .catch(err => {
+                console.error("error creating menu table.");
+            });
+    }
+
+    createPlacesTable() {
+        this.query('create table if not exists FavoritePlaces (name VARCHAR(32), latitude REAL(20), longitude REAL(20), score REAL(2), liveMusic VARCHAR(3), placeType VARCHAR(10), cuisine VARCHAR(15), phoneNumber VARCHAR(20), address VARCHAR (45), workingHours VARCHAR (10))')
+        .then(() => console.log("Successfully created FavoritePlaces table."))
         .catch(err => {
             console.error('Unable to create initial storage tables', err.tx, err.err);
         });
@@ -73,7 +83,26 @@ export class SqlStorage {
     }
 
     insertFavoritePlace(place:any) : Promise<any> {
-      return this.query('insert into FavoritePlaces (name,  latitude, longitude, score, liveMusic, placeType, cuisine, phoneNumber, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)',[place.Name, place.Latitude, place.Longitude, place.GrossScore, place.LiveMusic, place.PlaceType, place.Coucine, place.PhoneNumber, place.Address]);
+      return this.query('insert into FavoritePlaces (name,  latitude, longitude, score, liveMusic, placeType, cuisine, phoneNumber, address, workingHours) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',[place.Name, place.Latitude, place.Longitude, place.GrossScore, place.LiveMusic, place.PlaceType, place.Coucine, place.PhoneNumber, place.Address, place.WorkingHours]);
+    }
+
+    insertMenuItem(menuItem:any) : Promise<any>{
+        return this.query('insert into MenuItem (EntryName, EntryDescription, EntryPrice, PlaceName) VALUES (?, ?, ?, ?)',[menuItem.EntryName, menuItem.EntryDescription, menuItem.EntryPrice, menuItem.PlaceName]);
+    }
+
+    getMenuForPlace(placeName:any) : Promise<any>{
+        let items = Array();
+        return this.query('select * from MenuItem where PlaceName = ?',[placeName])
+            .then(data => {
+                if (data.res.rows.length > 0)
+                {
+                    for(var i=0; i<data.res.rows.length; i++)
+                    {
+                        items.push(data.res.rows.item(i));
+                    }
+                }
+                return items;
+            })
     }
 
     getAllPlaces() : Promise<any>{

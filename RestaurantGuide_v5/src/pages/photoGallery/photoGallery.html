@@ -7,13 +7,31 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button block color="danger" item-right icon-left   (click) ="takePicture()">
+    <div *ngIf="photosInformations[index]" class="imgContainer">
+      <img [src] = "baseUrl + photosInformations[index].Name">
+    </div>
+    <div *ngIf="photosInformations[index]" class="btnContainer">
+      <button ion-button color="danger" (click)="previousImage()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+      <button ion-button color="danger" (click)="nextImage()">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </div>
+
+  <button ion-button block color="danger" item-right icon-left   (click) ="takePicture(1)">
               <ion-icon name="camera"></ion-icon>
-              Nova slika
+              Nova fotografija
   </button>
+  
+  <button ion-button block color="primary" item-right icon-left (click) = "takePicture(0)">
+      <ion-icon name="photos"></ion-icon>
+      Galerija
+  </button>
+
     <button ion-button block color="danger" item-right icon-left  (click) ="upload()">
-              <ion-icon name="upload"></ion-icon>
-              Objavi
+              <ion-icon name="arrow-up"></ion-icon>
+                          Objavi
     </button>
 
 </ion-content>
