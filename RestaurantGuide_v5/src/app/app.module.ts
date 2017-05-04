@@ -25,6 +25,7 @@ import { ReviewListPage } from '../pages/reviewList/reviewList';
 import { Ionic2RatingModule } from 'ionic2-rating';
 import { SQLite } from '@ionic-native/sqlite';
 import { SqlStorage } from '../providers/sql-storage';
+import { SocialSharing } from '@ionic-native/social-sharing'
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { SqlStorage } from '../providers/sql-storage';
     GoogleMaps,
     SQLite,
     SqlStorage,
+    SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

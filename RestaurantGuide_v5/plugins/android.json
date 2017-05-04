@@ -46,6 +46,9 @@
         },
         "cordova-plugin-file-transfer": {
             "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
         }
     },
     "dependent_plugins": {
@@ -53,6 +56,9 @@
             "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
         },
         "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
+        },
+        "es6-promise-plugin": {
             "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
         }
     }

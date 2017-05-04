@@ -4,6 +4,7 @@ import { RGapiServices } from '../../app/services/rgapi.services';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
 import { Http } from '@angular/http';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @Component({
   selector: 'page-photoGallery',
@@ -20,7 +21,7 @@ export class PhotoGalleryPage {
   loading:Loading;
   index:number;
 
-  constructor(public navCtrl: NavController,  private transfer: Transfer, public http:Http, public params:NavParams, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController, private rgService: RGapiServices, private camera:Camera) {
+  constructor(public navCtrl: NavController, private socialSharing:SocialSharing, private transfer: Transfer, public http:Http, public params:NavParams, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController, private rgService: RGapiServices, private camera:Camera) {
         this.place = params.get('place');
         this.photosInformations = params.get("photosInformations");
         this.baseUrl = "http://192.168.1.100:8000/"
@@ -107,9 +108,9 @@ export class PhotoGalleryPage {
       }
     }
 
-    chooseFromGallery()
+    instagramShare()
     {
-
+      //this.socialSharing.shareViaInstagram("my photo taken")
     }
 
 }
