@@ -24317,9 +24317,8 @@ ion-navbar.toolbar {
   float: right;
 }
 
-#logo {
-  max-width: 90%;
-  max-height: 100%;
+#deleteBtn {
+  float: right;
 }
 
 #imgContainer {
@@ -24391,6 +24390,11 @@ div > img {
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
+}
+
+#socialNetworkShare {
+  display: block;
+  text-align: center;
 }
 
 ion-app._gmaps_cdv_ .nav-decor {

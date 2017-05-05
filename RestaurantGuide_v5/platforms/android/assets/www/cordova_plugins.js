@@ -321,6 +321,30 @@ module.exports = [
         "clobbers": [
             "window.plugins.socialsharing"
         ]
+    },
+    {
+        "id": "com.verso.cordova.clipboard.Clipboard",
+        "file": "plugins/com.verso.cordova.clipboard/www/clipboard.js",
+        "pluginId": "com.verso.cordova.clipboard",
+        "clobbers": [
+            "cordova.plugins.clipboard"
+        ]
+    },
+    {
+        "id": "cordova-instagram-plugin.InstagramPlugin",
+        "file": "plugins/cordova-instagram-plugin/www/CDVInstagramPlugin.js",
+        "pluginId": "cordova-instagram-plugin",
+        "clobbers": [
+            "Instagram"
+        ]
+    },
+    {
+        "id": "cordova-plugin-facebook4.FacebookConnectPlugin",
+        "file": "plugins/cordova-plugin-facebook4/www/facebook-native.js",
+        "pluginId": "cordova-plugin-facebook4",
+        "clobbers": [
+            "facebookConnectPlugin"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -342,7 +366,10 @@ module.exports.metadata =
     "cordova-plugin-file": "4.3.3",
     "cordova-plugin-file-transfer": "1.6.3",
     "es6-promise-plugin": "4.1.0",
-    "cordova-plugin-x-socialsharing": "5.1.8"
+    "cordova-plugin-x-socialsharing": "5.1.8",
+    "com.verso.cordova.clipboard": "0.1.0",
+    "cordova-instagram-plugin": "0.5.4",
+    "cordova-plugin-facebook4": "1.7.4"
 };
 // BOTTOM OF METADATA
 });

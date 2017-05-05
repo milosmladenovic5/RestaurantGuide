@@ -1,4 +1,4 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler , ViewChild} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -25,7 +25,10 @@ import { ReviewListPage } from '../pages/reviewList/reviewList';
 import { Ionic2RatingModule } from 'ionic2-rating';
 import { SQLite } from '@ionic-native/sqlite';
 import { SqlStorage } from '../providers/sql-storage';
-import { SocialSharing } from '@ionic-native/social-sharing'
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { Instagram } from '@ionic-native/instagram';
+import { Facebook } from '@ionic-native/facebook';
+import {IonicPage, NavParams} from "ionic-angular";
 
 @NgModule({
   declarations: [
@@ -74,6 +77,9 @@ import { SocialSharing } from '@ionic-native/social-sharing'
     SQLite,
     SqlStorage,
     SocialSharing,
+    Instagram,
+    Facebook,  
+    ViewChild,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -75,6 +75,42 @@
                         {
                             "xml": "<feature name=\"SocialSharing\"><param name=\"android-package\" value=\"nl.xservices.plugins.SocialSharing\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Clipboard\"><param name=\"android-package\" value=\"com.verso.cordova.clipboard.Clipboard\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Instagram\"><param name=\"android-package\" value=\"com.vladstirbu.cordova.CDVInstagramPlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"FacebookConnectPlugin\"><param name=\"android-package\" value=\"org.apache.cordova.facebook.ConnectPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<access origin=\"https://m.facebook.com\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<access origin=\"https://graph.facebook.com\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<access origin=\"https://api.facebook.com\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<access origin=\"https://*.fbcdn.net\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<access origin=\"https://*.akamaihd.net\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"android-minSdkVersion\" value=\"15\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -159,6 +195,32 @@
                         {
                             "xml": "<provider android:authorities=\"${applicationId}.provider\" android:exported=\"false\" android:grantUriPermissions=\"true\" android:name=\"android.support.v4.content.FileProvider\"><meta-data android:name=\"android.support.FILE_PROVIDER_PATHS\" android:resource=\"@xml/provider_paths\" /></provider>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<meta-data android:name=\"com.facebook.sdk.ApplicationId\" android:value=\"@string/fb_app_id\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<meta-data android:name=\"com.facebook.sdk.ApplicationName\" android:value=\"@string/fb_app_name\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:configChanges=\"keyboard|keyboardHidden|screenLayout|screenSize|orientation\" android:label=\"@string/fb_app_name\" android:name=\"com.facebook.FacebookActivity\" android:theme=\"@android:style/Theme.Translucent.NoTitleBar\" />",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "res/values/facebookconnect.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<string name=\"fb_app_id\">286198338494665</string>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<string name=\"fb_app_name\">RestaurantGuide</string>",
+                            "count": 1
                         }
                     ]
                 }
@@ -216,6 +278,17 @@
             "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
         },
         "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
+        },
+        "com.verso.cordova.clipboard": {
+            "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
+        },
+        "cordova-instagram-plugin": {
+            "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "286198338494665",
+            "APP_NAME": "RestaurantGuide",
             "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
         }
     },
@@ -542,6 +615,30 @@
             "clobbers": [
                 "window.plugins.socialsharing"
             ]
+        },
+        {
+            "id": "com.verso.cordova.clipboard.Clipboard",
+            "file": "plugins/com.verso.cordova.clipboard/www/clipboard.js",
+            "pluginId": "com.verso.cordova.clipboard",
+            "clobbers": [
+                "cordova.plugins.clipboard"
+            ]
+        },
+        {
+            "id": "cordova-instagram-plugin.InstagramPlugin",
+            "file": "plugins/cordova-instagram-plugin/www/CDVInstagramPlugin.js",
+            "pluginId": "cordova-instagram-plugin",
+            "clobbers": [
+                "Instagram"
+            ]
+        },
+        {
+            "id": "cordova-plugin-facebook4.FacebookConnectPlugin",
+            "file": "plugins/cordova-plugin-facebook4/www/facebook-native.js",
+            "pluginId": "cordova-plugin-facebook4",
+            "clobbers": [
+                "facebookConnectPlugin"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -561,6 +658,9 @@
         "cordova-plugin-file": "4.3.3",
         "cordova-plugin-file-transfer": "1.6.3",
         "es6-promise-plugin": "4.1.0",
-        "cordova-plugin-x-socialsharing": "5.1.8"
+        "cordova-plugin-x-socialsharing": "5.1.8",
+        "com.verso.cordova.clipboard": "0.1.0",
+        "cordova-instagram-plugin": "0.5.4",
+        "cordova-plugin-facebook4": "1.7.4"
     }
 }

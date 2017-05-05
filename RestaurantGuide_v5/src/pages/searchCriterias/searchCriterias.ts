@@ -15,10 +15,12 @@ export class SearchCriteriasPage {
   distance:boolean;
   maxDistance:any; // ngModel sa istim imenom (kada se on menja, menja se i ovaj atribut)
   location:any;
-
   coucine:String;
   type:String;
   liveMusic:String;
+  openingTime:string;
+  closingTime:string;
+
   constructor(public navCtrl: NavController, platform:Platform, private geolocation:Geolocation, private rgService: RGapiServices ,public params:NavParams) {
     this.distance = params.get('distance');
     this.maxDistance = 0;
@@ -49,10 +51,10 @@ export class SearchCriteriasPage {
  }
 
   getPlacesByCriterias()
- {
-    this.rgService.getPlacesByCriterias(this.liveMusic, this.coucine, this.type).subscribe(response => {
+  {
+    this.rgService.getPlacesByCriterias(this.liveMusic, this.coucine, this.type, this.openingTime, this.closingTime).subscribe(response => {
         console.log(response); 
         this.navCtrl.push(PlacesListPage, {places:response});   
     })
- }
+  }
 }

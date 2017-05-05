@@ -12,6 +12,7 @@ import { CallNumber } from '@ionic-native/call-number';
 import { Dialogs } from '@ionic-native/dialogs';
 import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import {IonicPage, NavParams} from "ionic-angular";
 
 @Component({
   templateUrl: 'app.html',

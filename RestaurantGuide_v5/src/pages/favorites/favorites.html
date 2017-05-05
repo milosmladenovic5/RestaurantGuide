@@ -10,7 +10,8 @@
   <ion-list>
     <ion-item *ngFor = "let place of favoritePlaces" id = "restaurantDetails">
          {{place.name}} &nbsp; (<i>{{place.placeType}}</i>)
-         <button ion-button color="danger" clear id="moreDetails" (click) = "placeDetails(place)">Detalji</button>
+         <button ion-button color="danger" clear id="deleteBtn" (click) = "removeFromFavorites(place)">Izbriši</button>
+         <button ion-button color="primary" clear id="moreDetails" (click) = "placeDetails(place)">Detalji</button>
     </ion-item>
   </ion-list>
 </ion-content>

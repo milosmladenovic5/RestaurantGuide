@@ -14,13 +14,13 @@
           <h1 id="placeName"> {{place.Name}} </h1>
          </div>
          <button ion-button id="callNumbBtn" color="danger" clear (click) = "callNumber(place.PhoneNumber)">{{place.PhoneNumber}}</button>
-         <span>{{place.GrossScore}}</span>
+         <span>{{place.Rating}}</span>
          <div class="placeIfno">
            <ion-grid>
               <ion-row>
                 <ion-col col-lg-4 col-md-6 col-sm-6>{{place.Address}}</ion-col><ion-col col-lg-4 col-md-6 col-sm-6>{{place.PlaceType}}</ion-col>
                 <ion-col col-lg-4 col-md-6 col-sm-6>{{place.Coucine}} kuhinja</ion-col>
-                <ion-col col-lg-4 col-md-6 col-sm-6>Otvoreno: <i>{{place.WorkingHours}}</i></ion-col>      
+                <ion-col col-lg-4 col-md-6 col-sm-6>Otvoreno: <i>{{place.OpensAt}}</i> - <i>{{place.ClosesAt}}</i></ion-col>      
               </ion-row>
            </ion-grid>
          </div>

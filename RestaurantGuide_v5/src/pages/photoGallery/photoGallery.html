@@ -36,8 +36,16 @@
 
     <br>
 
-    <button ion-button block color="primary" item-right icon-left (click) = "instagramShare()">
-      <ion-icon name="logo-instagram"></ion-icon>
-    </button>
+    <div id="socialNetworkShare">
+      <button ion-button  color="primary" item-right icon-left (click) = "socialNetworkShare('instagram')">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </button>
+       <button ion-button  color="primary" item-right icon-left (click) = "socialNetworkShare('facebook')">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </button>
+       <button ion-button  color="primary" item-right icon-left (click) = "socialNetworkShare('twitter')">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </button>
+    </div>
 
 </ion-content>

@@ -11,8 +11,8 @@ export class ReviewListPage {
   reviews:any;
   place:any;
   constructor(public navCtrl: NavController, public params:NavParams) {
-  this.reviews = params.get("reviews");
-  this.place = params.get("place");
+    this.reviews = params.get("reviews");
+    this.place = params.get("place");
   }
 
   createNew()

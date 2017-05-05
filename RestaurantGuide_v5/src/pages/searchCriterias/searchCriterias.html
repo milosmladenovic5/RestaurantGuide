@@ -61,10 +61,21 @@
         </ion-item>
 
         <ion-item>
+            <ion-label>Vreme otvaranja:</ion-label>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="openingTime"></ion-datetime>
+        </ion-item>
+
+         <ion-item>
+            <ion-label>Vreme zatvaranja:</ion-label>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="closingTime"></ion-datetime>
+        </ion-item>
+       
+        <ion-item>
             <button ion-button block icon-only (click) ="getPlacesByCriterias()">
                 <ion-icon name="search"></ion-icon>
             </button>
         </ion-item>
-        
+
+                
     </ng-template>
 </ion-content>

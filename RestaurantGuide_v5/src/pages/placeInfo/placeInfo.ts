@@ -19,11 +19,18 @@ import { Dialogs } from '@ionic-native/dialogs';
 export class PlaceInfoPage {
 
 
-  map:GoogleMap;
-     
+   map:GoogleMap;
    place:any;
+  
    constructor(public navCtrl: NavController, private dialogs:Dialogs, private caller: CallNumber,  public sqlStorage:SqlStorage,  private sqlite:SQLite, private platform:Platform, public params:NavParams, public geolocation:Geolocation, private googleMaps:GoogleMaps, private rgService: RGapiServices) {
-    this.place = params.get('place');
+      this.place = params.get('place');
+      if(this.place.ReviewersNumber != 0)
+        this.place.Rating = this.place.GrossScore / this.place.ReviewersNumber;
+      else
+        this.place.Rating = "";
+ 
+     this.place.OpensAt = this.place.OpensAt.substring(0,5);
+     this.place.ClosesAt = this.place.ClosesAt.substring(0,5);   
   
      platform.ready().then(() => { 
         let location = new LatLng(this.place.Latitude, this.place.Longitude);

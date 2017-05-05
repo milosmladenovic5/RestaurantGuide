@@ -5,6 +5,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
 import { Http } from '@angular/http';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { Instagram } from '@ionic-native/instagram';
+import { Facebook } from '@ionic-native/facebook';
 
 @Component({
   selector: 'page-photoGallery',
@@ -15,16 +17,16 @@ export class PhotoGalleryPage {
 
   place:any;
   photosInformations:any;
-  imageURL:String;
+  imageURL:string;
   imageName:String;
   baseUrl:String;
   loading:Loading;
   index:number;
 
-  constructor(public navCtrl: NavController, private socialSharing:SocialSharing, private transfer: Transfer, public http:Http, public params:NavParams, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController, private rgService: RGapiServices, private camera:Camera) {
+  constructor(public navCtrl: NavController, private instagram:Instagram, private socialSharing:SocialSharing, private transfer: Transfer, public http:Http, public params:NavParams, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController, private rgService: RGapiServices, private camera:Camera) {
         this.place = params.get('place');
         this.photosInformations = params.get("photosInformations");
-        this.baseUrl = "http://192.168.1.101:8000/"
+        this.baseUrl = "http://192.168.0.10:8000/"
         this.index=0;
   }
 
@@ -85,6 +87,10 @@ export class PhotoGalleryPage {
         .then((data) => {
           this.loading.dismissAll();
           this.presentToast("Uspešno dodata fotografija.");
+          this.rgService.getPhotosInformations(this.place.PlaceId).subscribe(response => {
+            this.photosInformations = response;
+            this.index = 0;
+          })
         }, (err) => {
           this.loading.dismissAll();
           this.presentToast("Greška u slanju.");  
@@ -108,9 +114,22 @@ export class PhotoGalleryPage {
       }
     }
 
-    instagramShare()
+    socialNetworkShare(network)
     {
-      //this.socialSharing.shareViaInstagram("my photo taken")
+      if(network == "instagram"){
+        // this.instagram.share(this.imageURL, 'Caption')
+        // .then(() => console.log('Shared!')).catch((error: any) => console.error(error));
+        this.socialSharing.shareViaInstagram("caption",this.imageURL).then(() => console.log("OK")).catch(error => console.error(error));
+      }
+      else if(network =="facebook")
+      {
+        this.socialSharing.shareViaFacebook('Message via facebook.', null,null)
+          .then(() => console.log('Successfully shared.'))
+          .catch((error:any) => console.error(error));
+      }
+      else {
+         this.socialSharing.shareViaTwitter('',this.imageURL).then(() => console.log('Successfully shared.')).catch((error:any) => console.error(error));
+      }
     }
 
 }

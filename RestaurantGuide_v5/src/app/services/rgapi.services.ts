@@ -11,7 +11,7 @@ export class RGapiServices{
 
     constructor(http:Http){
         this.http = http;
-        this.baseUrl = "http://192.168.1.101:8000/api/";
+        this.baseUrl = "http://192.168.0.10:8000/api/";
     }
 
     getCityByName(name){
@@ -33,12 +33,12 @@ export class RGapiServices{
         return this.http.post(this.baseUrl+'getNearbyPlaces', JSON.stringify(body), {headers:headers}).map(res => res.json());
     }
 
-    getPlacesByCriterias(liveMusic, coucine, type)
+    getPlacesByCriterias(liveMusic, coucine, type, startingTime, closingTime)
     {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
-        let body = {coucine:coucine, liveMusic:liveMusic, type:type};
+        let body = {coucine:coucine, liveMusic:liveMusic, type:type, opensAt:startingTime, closesAt:closingTime};
       
         return this.http.post(this.baseUrl+'getPlacesByCriterias', JSON.stringify(body), {headers:headers}).map(res => res.json());
     }

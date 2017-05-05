@@ -49,6 +49,14 @@
         },
         "cordova-plugin-x-socialsharing": {
             "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
+        },
+        "cordova-instagram-plugin": {
+            "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "286198338494665",
+            "APP_NAME": "RestaurantGuide",
+            "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
         }
     },
     "dependent_plugins": {
@@ -59,6 +67,9 @@
             "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
         },
         "es6-promise-plugin": {
+            "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
+        },
+        "com.verso.cordova.clipboard": {
             "PACKAGE_NAME": "com.ionicframework.restaurantguidev5416431"
         }
     }

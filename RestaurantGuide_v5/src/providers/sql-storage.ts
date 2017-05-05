@@ -6,7 +6,7 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 export class SqlStorage {
 
     storage: any;
-    DB_NAME: string = 'favPlaces';
+    DB_NAME: string = 'placesFavorite';
 
     constructor(public platform: Platform, public sqlite: SQLite) {
 
@@ -30,7 +30,7 @@ export class SqlStorage {
     }
 
     createPlacesTable() {
-        this.query('create table if not exists FavoritePlaces (name VARCHAR(32), latitude REAL(20), longitude REAL(20), score REAL(2), liveMusic VARCHAR(3), placeType VARCHAR(10), cuisine VARCHAR(15), phoneNumber VARCHAR(20), address VARCHAR (45), workingHours VARCHAR (10))')
+        this.query('create table if not exists FavoritePlaces (name VARCHAR(32), latitude REAL(20), longitude REAL(20), score REAL(2), liveMusic VARCHAR(3), placeType VARCHAR(10), cuisine VARCHAR(15), phoneNumber VARCHAR(20), address VARCHAR (45), opensAt VARCHAR (10), closesAt VARCHAR(10))')
         .then(() => console.log("Successfully created FavoritePlaces table."))
         .catch(err => {
             console.error('Unable to create initial storage tables', err.tx, err.err);
@@ -77,13 +77,16 @@ export class SqlStorage {
         return this.query('insert into kv(key, value) values (?, ?)', [key, value]);
     }
 
-    /** REMOVE the value in the database for the given key. */
-    remove(key: string): Promise<any> {
-        return this.query('delete from kv where key = ?', [key]);
+    removePlaceFromFavorites(placeName: string): Promise<any> {
+        return this.query('delete from FavoritePlaces where name = ?', [placeName]);
+    }
+
+    removeMenuItems(placeName:string) : Promise<any>{
+        return this.query('delete from MenuItem where PlaceName = ?', [placeName]);
     }
 
     insertFavoritePlace(place:any) : Promise<any> {
-      return this.query('insert into FavoritePlaces (name,  latitude, longitude, score, liveMusic, placeType, cuisine, phoneNumber, address, workingHours) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',[place.Name, place.Latitude, place.Longitude, place.GrossScore, place.LiveMusic, place.PlaceType, place.Coucine, place.PhoneNumber, place.Address, place.WorkingHours]);
+      return this.query('insert into FavoritePlaces (name,  latitude, longitude, score, liveMusic, placeType, cuisine, phoneNumber, address, opensAt, closesAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',[place.Name, place.Latitude, place.Longitude, place.GrossScore, place.LiveMusic, place.PlaceType, place.Coucine, place.PhoneNumber, place.Address, place.OpensAt, place.ClosesAt]);
     }
 
     insertMenuItem(menuItem:any) : Promise<any>{
