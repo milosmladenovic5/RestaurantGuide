@@ -14,9 +14,7 @@ import { FavoritePlaceInfoPage } from '../pages/favoritePlaceInfo/favoritePlaceI
 import { SearchCriteriasPage } from '../pages/searchCriterias/searchCriterias';
 import { MapPage } from '../pages/map/map';
 import { PlaceInfoPage } from '../pages/placeInfo/placeInfo';
-import { GoogleMap, LatLng, GoogleMapsEvent , GoogleMaps} from "@ionic-native/google-maps";
-import { Connectivity } from '../providers/connectivity';
-import { Locations } from '../providers/locations';
+import {  GoogleMaps} from "@ionic-native/google-maps";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuPage } from '../pages/menu/menu';
@@ -28,7 +26,6 @@ import { SqlStorage } from '../providers/sql-storage';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Instagram } from '@ionic-native/instagram';
 import { Facebook } from '@ionic-native/facebook';
-import {IonicPage, NavParams} from "ionic-angular";
 
 @NgModule({
   declarations: [

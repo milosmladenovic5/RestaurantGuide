@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Ionic2RatingModule } from 'ionic2-rating';
 import { ToastController } from 'ionic-angular';
 import { RGapiServices } from '../../app/services/rgapi.services';
 import { ReviewListPage } from '../reviewList/reviewList';
@@ -25,9 +24,9 @@ export class InputReviewPage {
     if(!this.review.nickname || !this.review.comment)
     {
         let toast = this.toastCtrl.create({
-        message: 'Neko od obaveznih polja je prazno!',
-        duration: 3000,
-        position: 'bottom'
+          message: 'Neko od obaveznih polja je prazno!',
+          duration: 3000,
+          position: 'bottom'
         });
 
         toast.present();

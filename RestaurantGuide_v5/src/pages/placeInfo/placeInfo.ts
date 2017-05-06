@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { MapPage } from '../map/map';
 import {GoogleMaps, GoogleMap, LatLng, GoogleMapsEvent, MarkerOptions, Marker} from "@ionic-native/google-maps";
 import { Platform } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { RGapiServices } from '../../app/services/rgapi.services';
 import { MenuPage } from '../menu/menu';
 import { ReviewListPage } from '../reviewList/reviewList';
-import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+import { SQLite } from '@ionic-native/sqlite';
 import { SqlStorage } from '../../providers/sql-storage';
 import { CallNumber } from '@ionic-native/call-number';
 import { PhotoGalleryPage } from '../photoGallery/photoGallery';
@@ -103,16 +102,26 @@ export class PlaceInfoPage {
   
     addToFavorites(place)
     {
-      this.rgService.getPlaceMenu(place.PlaceId).subscribe(response => {
-       this.sqlStorage.insertFavoritePlace(place)
-        .then(() =>{
-            this.addMenuToFavorites(response, this.place.Name);
-            this.dialogs.alert('Dodato u omiljene.','Obaveštenje','Izađi')
-            .then(() => console.log('Dialog dismissed'))
-            .catch(e => console.log('Error displaying dialog', e));
-        });
-      }) 
+       this.rgService.getPlaceMenu(place.PlaceId).subscribe(response => {
+        this.sqlStorage.insertFavoritePlace(place)
+          .then(() =>{
+              this.addMenuToFavorites(response, this.place.Name);
+              this.dialogs.alert('Dodato u omiljene.','Obaveštenje','Izađi')
+              .then(() => console.log('Dialog dismissed'))
+              .catch(e => console.log('Error displaying dialog', e));
+          });
+        }) 
+
+      // if(this.sqlStorage.getPlaceByName(this.place.Name)==null)
+      // {
        
+      // }
+      // else{
+      //   this.dialogs.alert('Mesto već postoji u omiljenim.','Obaveštenje','Izađi')
+      //     .then(() => {
+      //       console.log("Dialog dismissed.");
+      //     });
+      // }       
     }
 
     addMenuToFavorites(menu, placeName)

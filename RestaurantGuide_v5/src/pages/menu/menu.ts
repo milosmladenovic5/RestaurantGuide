@@ -9,7 +9,7 @@ export class MenuPage {
 
   menuItems:any;
   constructor(public navCtrl: NavController, public params:NavParams) {
-  this.menuItems = params.get("menuItems");
+     this.menuItems = params.get("menuItems");
   }
 
 }

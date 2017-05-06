@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, ActionSheetController, ToastController, Platform, LoadingController, Loading, NavParams } from 'ionic-angular';
+import { NavController, ToastController, Platform, LoadingController, Loading, NavParams } from 'ionic-angular';
 import { RGapiServices } from '../../app/services/rgapi.services';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
 import { Http } from '@angular/http';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Instagram } from '@ionic-native/instagram';
-import { Facebook } from '@ionic-native/facebook';
 
 @Component({
   selector: 'page-photoGallery',
@@ -26,7 +25,7 @@ export class PhotoGalleryPage {
   constructor(public navCtrl: NavController, private instagram:Instagram, private socialSharing:SocialSharing, private transfer: Transfer, public http:Http, public params:NavParams, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController, private rgService: RGapiServices, private camera:Camera) {
         this.place = params.get('place');
         this.photosInformations = params.get("photosInformations");
-        this.baseUrl = "http://192.168.0.10:8000/"
+        this.baseUrl = "http://192.168.0.104:8000/"
         this.index=0;
   }
 

@@ -108,6 +108,25 @@ export class SqlStorage {
             })
     }
 
+    getPlaceByName(placeName:any):Promise<any>
+    {
+        console.log(placeName);
+
+        var item=null;
+        return this.query('select * from FavoritePlaces where name=?',[placeName])
+            .then(data=> {
+                console.log(data.res.rows);
+                
+                if(data.res.rows.length > 0){
+                    console.log(data.res.rows.item(0));
+                    item = data.res.rows.item[0];
+                }
+                
+                return item;
+            })
+            .catch(err=> {return null});
+    }
+
     getAllPlaces() : Promise<any>{
       let places = Array();
       return this.query('select * from FavoritePlaces',[])

@@ -1,19 +1,21 @@
 
 <ion-content padding id="bodyContent">
 
-  <ion-content padding id="imgContainer">
+  <!--<ion-content padding id="imgContainer">-->
     <!--<img src="img/rglogo.jpg" id="logo"/>-->
     <div id="canvas">
       <canvas id="logo" width="180" height="180">
       
       </canvas>
     </div>
-  </ion-content>
-
-  <button ion-button block  color="primary" outline id="nearRest" (click) = "showSearchCriteriasPage(true)">Nađi obližnja mesta</button>
-
-  <button ion-button block color="primary" (click) ="showSearchCriteriasPage(false)" outline >Pretraži mesta po kriterijumu</button>
-
-  <button ion-button block color="danger" (click) = "exitApp()" outline>Izlaz</button>
-
+  <!--</ion-content>-->
+  <ion-item>
+    <button ion-button block  color="primary" outline id="nearRest" (click) = "showSearchCriteriasPage(true)">Nađi obližnja mesta</button>
+  </ion-item>
+  <ion-item>
+    <button ion-button block color="primary" (click) ="showSearchCriteriasPage(false)" outline >Pretraži mesta po kriterijumu</button>
+  </ion-item>
+  <ion-item>
+    <button ion-button block color="danger" (click) = "exitApp()" outline>Izlaz</button>
+  </ion-item>
 </ion-content>

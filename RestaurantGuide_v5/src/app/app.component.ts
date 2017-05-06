@@ -6,13 +6,11 @@ import { RGapiServices } from './services/rgapi.services'
 import { TabsPage } from '../pages/tabs/tabs';
 import { Geolocation } from '@ionic-native/geolocation';
 import { SQLite } from '@ionic-native/sqlite';
-import { GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, CameraPosition, MarkerOptions, Marker } from '@ionic-native/google-maps';
 import { SqlStorage } from '../providers/sql-storage';
 import { CallNumber } from '@ionic-native/call-number';
 import { Dialogs } from '@ionic-native/dialogs';
-import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
-import { Camera, CameraOptions } from '@ionic-native/camera';
-import {IonicPage, NavParams} from "ionic-angular";
+import { Transfer } from '@ionic-native/transfer';
+import { Camera } from '@ionic-native/camera';
 
 @Component({
   templateUrl: 'app.html',

@@ -24313,17 +24313,36 @@ ion-navbar.toolbar {
   }
 }
 
+p {
+  word-break: break-all;
+  width: 90%;
+  padding-left: 20px;
+}
+
+ion-item {
+  word-break: break-all;
+}
+
+#about {
+  width: 90%;
+  padding-left: 20px;
+}
+
+h2 {
+  padding-left: 20px;
+}
+
+ion-item {
+  padding: 10px;
+  margin: 10px;
+}
+
 #moreDetails {
   float: right;
 }
 
 #deleteBtn {
   float: right;
-}
-
-#logo {
-  max-width: 90%;
-  max-height: 100%;
 }
 
 #imgContainer {
@@ -24335,6 +24354,17 @@ ion-navbar.toolbar {
   -ms-flex-line-pack: center;
   align-content: center;
   text-align: center;
+}
+
+#canvas {
+  text-align: center;
+  padding: 30px;
+  margin-top: 30px;
+}
+
+button {
+  height: 25px;
+  margin: 5px;
 }
 
 ul {
