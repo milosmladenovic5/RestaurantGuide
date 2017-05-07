@@ -15,7 +15,7 @@
          <ion-icon name="restaurant"></ion-icon>        
                <h3><b>{{place.PlaceType}}</b></h3>    <br>       
                <h3><b>Naziv mesta:</b></h3> <i> {{place.Name}} </i> <p id="km"> &nbsp;{{place.distance}} km </p> <br>               
-               <h3><b>Radno vreme:</b></h3> {{place.WorkingHours}} <br>
+               <h3><b>Radno vreme:</b></h3> {{place.OpensAt}} - {{place.ClosesAt}} <br>
                <button range-right block ion-button  color="dark" outline id="nearRest" (click)="showPlaceDetails(place)" >Više informacija</button> 
       </ion-card>
     </ion-item>

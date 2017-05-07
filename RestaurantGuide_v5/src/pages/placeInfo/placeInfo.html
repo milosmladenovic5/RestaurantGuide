@@ -14,7 +14,7 @@
           <h1 id="placeName"> {{place.Name}} </h1>
          </div>
          <button ion-button id="callNumbBtn" color="danger" clear (click) = "callNumber(place.PhoneNumber)">{{place.PhoneNumber}}</button>
-         <span>{{place.Rating}}</span>
+         <span id="avgRating"><b><i>Ocena:  &nbsp;</i></b>  {{place.Rating}}</span>
          <div class="placeIfno">
            <ion-grid>
               <ion-row>

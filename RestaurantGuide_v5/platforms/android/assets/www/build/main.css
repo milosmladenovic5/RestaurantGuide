@@ -24313,7 +24313,7 @@ ion-navbar.toolbar {
   }
 }
 
-p {
+.about {
   word-break: break-all;
   width: 90%;
   padding-left: 20px;
@@ -24328,7 +24328,7 @@ ion-item {
   padding-left: 20px;
 }
 
-h2 {
+#authors {
   padding-left: 20px;
 }
 
@@ -24432,6 +24432,12 @@ div > img {
   text-align: center;
 }
 
+#photo {
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+  box-shadow: 3px 3px 3px gray;
+}
+
 ion-app._gmaps_cdv_ .nav-decor {
   background-color: transparent !important;
 }
@@ -24491,6 +24497,12 @@ ion-app._gmaps_cdv_ .nav-decor {
 ion-col {
   text-align: center;
   box-shadow: 1px 1px 1px gray;
+}
+
+#avgRating {
+  float: right;
+  box-shadow: 1px 1px 1px gray;
+  margin-top: 3px;
 }
 
 ion-navbar, ion-header {

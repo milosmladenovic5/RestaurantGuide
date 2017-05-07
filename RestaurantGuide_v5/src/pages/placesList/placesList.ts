@@ -11,6 +11,11 @@ export class PlacesListPage {
   places:any;
   constructor(public navCtrl: NavController, public params:NavParams) {
     this.places = params.get('places');
+
+    for(var i=0; i<this.places.length; i++){  
+      this.places[i].OpensAt = this.places[i].OpensAt.substring(0,5);
+      this.places[i].ClosesAt = this.places[i].ClosesAt.substring(0,5);   
+      }
   }
 
   showPlaceDetails(place){
