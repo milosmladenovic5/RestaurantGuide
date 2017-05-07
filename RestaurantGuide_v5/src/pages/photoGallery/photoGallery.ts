@@ -25,7 +25,7 @@ export class PhotoGalleryPage {
   constructor(public navCtrl: NavController, private instagram:Instagram, private socialSharing:SocialSharing, private transfer: Transfer, public http:Http, public params:NavParams, public toastCtrl: ToastController, public platform: Platform, public loadingCtrl: LoadingController, private rgService: RGapiServices, private camera:Camera) {
         this.place = params.get('place');
         this.photosInformations = params.get("photosInformations");
-        this.baseUrl = "http://192.168.0.104:8000/"
+        this.baseUrl = "http://192.168.1.103:8000/"
         this.index=0;
   }
 
